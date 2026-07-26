@@ -11,10 +11,11 @@
           <h2 class="text-xl font-semibold text-white">1. Verantwortliche Stelle</h2>
           <p>
             Verantwortlich fuer die Datenverarbeitung auf dieser Website ist:<br>
-            [Firmenname / Inhaber]<br>
-            [Anschrift]<br>
-            E-Mail: [Datenschutz-E-Mail-Adresse]
+            KfzServiceAkkus, Inhaber Sefkan Akkus<br>
+            Germaniastraße 160, 45355 Essen<br>
+            Telefon: 01577 7533784
           </p>
+          <p class="text-sm text-amber-200">Eine E-Mail-Adresse für Datenschutzanfragen muss vor dem Livegang ergänzt werden.</p>
         </section>
 
         <section class="space-y-3">

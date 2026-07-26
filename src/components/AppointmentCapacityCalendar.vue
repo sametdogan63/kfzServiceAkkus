@@ -46,6 +46,10 @@
       </button>
     </div>
 
+    <p v-if="loadError" class="border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-200">
+      {{ loadError }}
+    </p>
+
     <div v-if="selectedDay" class="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
       <p class="text-sm font-semibold text-white">
         Verfuegbare Slots fuer {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
@@ -72,7 +76,7 @@
 
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
-import { getAvailabilityWindow } from '../services/appointmentService'
+import { getAvailabilityWindow } from '../services/appointmentProductionService'
 
 const props = defineProps({
   selectedDate: {
@@ -93,6 +97,7 @@ const emit = defineEmits(['update:selectedDate', 'update:selectedSlot'])
 
 const days = ref([])
 const selectedDay = ref(null)
+const loadError = ref('')
 
 const hasAvailableSlot = computed(() => {
   if (!selectedDay.value) {
@@ -176,7 +181,16 @@ const selectSlot = (slot) => {
 }
 
 const refreshDays = async () => {
-  days.value = await getAvailabilityWindow({ days: 21, selectedService: props.selectedService })
+  loadError.value = ''
+
+  try {
+    days.value = await getAvailabilityWindow({ days: 21, selectedService: props.selectedService })
+  } catch (error) {
+    days.value = []
+    selectedDay.value = null
+    loadError.value = error.message || 'Der Kalender konnte nicht geladen werden.'
+    return
+  }
 
   if (props.selectedDate) {
     const match = days.value.find((entry) => entry.date === props.selectedDate) || null

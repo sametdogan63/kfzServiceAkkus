@@ -8,36 +8,32 @@ export const appointmentPlannerConfig = {
     },
     1: {
       windows: [
-        { start: '08:00', end: '12:00' },
-        { start: '13:00', end: '17:00' }
+        { start: '08:00', end: '18:00' }
       ]
     },
     2: {
       windows: [
-        { start: '08:00', end: '12:00' },
-        { start: '13:00', end: '17:00' }
+        { start: '08:00', end: '18:00' }
       ]
     },
     3: {
       windows: [
-        { start: '08:00', end: '12:00' },
-        { start: '13:00', end: '17:00' }
+        { start: '08:00', end: '18:00' }
       ]
     },
     4: {
       windows: [
-        { start: '08:00', end: '12:00' },
-        { start: '13:00', end: '17:00' }
+        { start: '08:00', end: '18:00' }
       ]
     },
     5: {
       windows: [
-        { start: '08:00', end: '14:00' }
+        { start: '08:00', end: '18:00' }
       ]
     },
     6: {
       windows: [
-        { start: '09:00', end: '13:00' }
+        { start: '08:00', end: '13:00' }
       ]
     }
   },

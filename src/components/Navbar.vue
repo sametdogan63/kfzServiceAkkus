@@ -49,7 +49,7 @@
               <CalendarDays class="h-4 w-4" aria-hidden="true" />
               <span>Termin anfragen</span>
             </RouterLink>
-            <a href="tel:+49123456789" class="flex items-center gap-2 rounded-lg px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5">
+            <a href="tel:+4915777533784" class="flex items-center gap-2 rounded-lg px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5">
               <Phone class="h-4 w-4" aria-hidden="true" />
               <span>Jetzt anrufen</span>
             </a>

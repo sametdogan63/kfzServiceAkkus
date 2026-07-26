@@ -22,9 +22,9 @@
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">Kontakt</h3>
         <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-          <li>Tel: <a href="tel:+490123456789" class="text-white transition hover:text-brand-400">01234 567 890</a></li>
-          <li>E-Mail: <a href="mailto:info@kfzserviceakkus.de" class="text-white transition hover:text-brand-400">info@kfzserviceakkus.de</a></li>
-          <li>Öffnungszeiten: Mo–Fr 8:00–18:00</li>
+          <li>Tel: <a href="tel:+4915777533784" class="text-white transition hover:text-brand-400">01577 7533784</a></li>
+          <li>Germaniastraße 160<br />45355 Essen</li>
+          <li>Mo–Fr 08:00–18:00<br />Sa 08:00–13:00</li>
         </ul>
       </div>
 

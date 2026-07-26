@@ -36,7 +36,7 @@
                 <span>Termin vereinbaren</span>
                 <ArrowRight class="h-4 w-4" aria-hidden="true" />
               </RouterLink>
-              <a href="tel:+49123456789" class="btn-secondary">
+              <a href="tel:+4915777533784" class="btn-secondary">
                 <Phone class="h-4 w-4" aria-hidden="true" />
                 <span>Jetzt anrufen</span>
               </a>

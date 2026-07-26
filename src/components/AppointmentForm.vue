@@ -102,7 +102,7 @@
 <script setup>
 import { reactive, ref, watch } from 'vue'
 import AppointmentCapacityCalendar from './AppointmentCapacityCalendar.vue'
-import { submitAppointment } from '../services/appointmentService'
+import { submitAppointment } from '../services/appointmentProductionService'
 
 const form = reactive({
   name: '',

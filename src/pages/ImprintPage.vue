@@ -10,10 +10,10 @@
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Angaben gemaess § 5 TMG</h2>
           <p>
-            [Firmenname / Inhaber]<br>
-            [Rechtsform]<br>
-            [Strasse und Hausnummer]<br>
-            [PLZ Ort]<br>
+            KfzServiceAkkus<br>
+            Inhaber: Sefkan Akkus<br>
+            Germaniastraße 160<br>
+            45355 Essen<br>
             Deutschland
           </p>
         </section>
@@ -21,14 +21,14 @@
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Kontakt</h2>
           <p>
-            Telefon: [Telefonnummer]<br>
-            E-Mail: [E-Mail-Adresse]
+            Telefon: <a href="tel:+4915777533784" class="text-brand-300 hover:text-brand-200">01577 7533784</a>
           </p>
+          <p class="text-sm text-amber-200">Eine geschäftliche E-Mail-Adresse muss vor dem Livegang noch ergänzt werden.</p>
         </section>
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Vertreten durch</h2>
-          <p>[Vor- und Nachname der vertretungsberechtigten Person]</p>
+          <p>Sefkan Akkus</p>
         </section>
 
         <section class="space-y-3">
@@ -48,7 +48,7 @@
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Verantwortlich fuer den Inhalt</h2>
-          <p>[Vor- und Nachname, vollstaendige Anschrift]</p>
+          <p>Sefkan Akkus, Germaniastraße 160, 45355 Essen</p>
         </section>
 
         <section class="space-y-3">
@@ -60,7 +60,7 @@
       </div>
 
       <p class="text-sm leading-6 text-amber-200">
-        Diese Seite ist eine Vorlage. Ersetze vor der Veroeffentlichung alle Angaben in eckigen Klammern durch die echten Unternehmensdaten und lasse den Inhalt bei Bedarf rechtlich pruefen.
+        Vor der Veroeffentlichung muessen die Angaben zu Registereintrag, Umsatzsteuer-Identifikationsnummer und die geschäftliche E-Mail-Adresse vervollständigt oder die nicht zutreffenden Abschnitte entfernt werden.
       </p>
     </div>
   </section>

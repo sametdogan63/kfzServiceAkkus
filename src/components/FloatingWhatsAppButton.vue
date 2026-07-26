@@ -1,6 +1,6 @@
 <template>
   <a
-    href="https://wa.me/491234567890?text=Hallo%20Kfz%20Service%20Akkus%2C%20ich%20möchte%20eine%20Anfrage%20stellen"
+    href="https://wa.me/4915777533784?text=Hallo%20KfzServiceAkkus%2C%20ich%20möchte%20eine%20Anfrage%20stellen"
     target="_blank"
     rel="noreferrer"
     class="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-2xl shadow-emerald-500/20 transition hover:scale-105"

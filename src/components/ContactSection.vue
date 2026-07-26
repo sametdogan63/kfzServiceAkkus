@@ -16,28 +16,28 @@
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414m0 0L9.172 8.172m4.242 4.242L9.172 16.657m4.242-4.242L17.657 8.172"></path></svg>
             </div>
             <h3 class="text-base font-semibold text-white">Standort</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-300">Musterstraße 12<br />12345 Musterstadt</p>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Germaniastraße 160<br />45355 Essen</p>
           </div>
           <div class="rounded-[28px] border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent p-6">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-300">
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h3 class="text-base font-semibold text-white">Öffnungszeiten</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-300">Mo–Fr: 08:00–18:00 Uhr<br />Sa: 09:00–13:00 Uhr</p>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Mo–Fr: 08:00–18:00 Uhr<br />Sa: 08:00–13:00 Uhr<br />So: geschlossen</p>
           </div>
           <div class="rounded-[28px] border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent p-6">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-300">
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3 7-1 2a1 1 0 001 1h10a1 1 0 001-1l-1-2 3-7h-2"></path></svg>
             </div>
             <h3 class="text-base font-semibold text-white">Telefon</h3>
-            <a href="tel:+490123456789" class="mt-4 block text-sm leading-7 text-brand-300">01234 567 890</a>
+            <a href="tel:+4915777533784" class="mt-4 block text-sm leading-7 text-brand-300">01577 7533784</a>
           </div>
           <div class="rounded-[28px] border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent p-6">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-300">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6"></path></svg>
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="text-base font-semibold text-white">E-Mail</h3>
-            <a href="mailto:info@kfzserviceakkus.de" class="mt-4 block text-sm leading-7 text-brand-300">info@kfzserviceakkus.de</a>
+            <h3 class="text-base font-semibold text-white">Heute erreichbar</h3>
+            <p class="mt-4 text-sm leading-7 text-slate-300">Montag bis Freitag<br />08:00–18:00 Uhr</p>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
           <h3 class="text-2xl font-semibold text-white">Wann passt es Ihnen?</h3>
           <p class="text-sm leading-7 text-slate-400">Waehlen Sie online Leistung und Wunschtermin. Der Betrieb prueft die Anfrage und bestaetigt sie per E-Mail.</p>
           <RouterLink to="/termin" class="btn-primary w-full">Termin anfragen</RouterLink>
-          <a href="tel:+49123456789" class="btn-secondary w-full">Direkt anrufen</a>
+          <a href="tel:+4915777533784" class="btn-secondary w-full">Direkt anrufen</a>
         </div>
       </aside>
     </div>
