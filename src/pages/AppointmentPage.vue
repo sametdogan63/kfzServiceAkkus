@@ -5,7 +5,7 @@
       <div class="max-w-4xl">
         <p class="section-subtitle mb-4">Online Buchung</p>
         <h1 class="text-5xl lg:text-6xl font-bold mb-6">Termin vereinbaren</h1>
-        <p class="text-xl text-slate-300 leading-relaxed">Buchen Sie schnell und unkompliziert einen Termin für Inspektion, Reparatur oder Batterie-Check. Wir bestätigen Ihren Wunschtermin innerhalb eines Werktages.</p>
+        <p class="text-xl text-slate-300 leading-relaxed">Senden Sie Ihre Anfrage mit Leistung und Wunschtermin. Der Betrieb prueft die Verfuegbarkeit und bestaetigt Ihren Termin per E-Mail.</p>
       </div>
     </section>
 
@@ -13,36 +13,36 @@
     <section class="section-container section-spacing">
       <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <AppointmentForm />
-        <div class="space-y-8">
-          <div class="card-base card-hover p-10 lg:p-12">
-            <h3 class="text-2xl font-bold text-white mb-6">Terminbuchung erklärt</h3>
+        <aside class="space-y-8 lg:sticky lg:top-28 lg:self-start">
+          <div class="card-base p-8 lg:p-10">
+            <h3 class="text-2xl font-bold text-white mb-6">So funktioniert die Anfrage</h3>
             <div class="space-y-5">
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">1</div>
                 <div>
-                  <p class="font-semibold text-white">Formular ausfüllen</p>
-                  <p class="text-sm text-slate-400 mt-1">Geben Sie Fahrzeugdaten und Anliegen an</p>
+                  <p class="font-semibold text-white">Leistung und Slot auswaehlen</p>
+                  <p class="text-sm text-slate-400 mt-1">Geben Sie Fahrzeugdaten und Ihr Anliegen an</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">2</div>
                 <div>
-                  <p class="font-semibold text-white">Bestätigung per E-Mail</p>
-                  <p class="text-sm text-slate-400 mt-1">Sie erhalten eine sofortige Buchungsbestätigung</p>
+                  <p class="font-semibold text-white">Anfrage absenden</p>
+                  <p class="text-sm text-slate-400 mt-1">Ihr Wunschtermin ist noch nicht verbindlich</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">3</div>
                 <div>
-                  <p class="font-semibold text-white">Wir melden uns</p>
-                  <p class="text-sm text-slate-400 mt-1">Telefonische Bestätigung und zeitliche Abstimmung</p>
+                  <p class="font-semibold text-white">Betrieb prueft die Anfrage</p>
+                  <p class="text-sm text-slate-400 mt-1">Wir bestaetigen oder schlagen eine Alternative vor</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">4</div>
                 <div>
-                  <p class="font-semibold text-white">Termin wahrgenommen</p>
-                  <p class="text-sm text-slate-400 mt-1">Schnelle, professionelle Werkstattarbeit</p>
+                  <p class="font-semibold text-white">Bestaetigung per E-Mail</p>
+                  <p class="text-sm text-slate-400 mt-1">Danach ist Ihr Termin verbindlich</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   </div>

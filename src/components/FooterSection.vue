@@ -41,7 +41,11 @@
 
     <div class="mt-12 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex sm:items-center sm:justify-between">
       <p>© 2026 Kfz-Service Akkus. Alle Rechte vorbehalten.</p>
-      <p>Entwickelt für klare Erlebnisse, Sicherheit und Vertrauen.</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 sm:mt-0">
+        <RouterLink to="/impressum" class="transition hover:text-brand-400">Impressum</RouterLink>
+        <RouterLink to="/datenschutz" class="transition hover:text-brand-400">Datenschutz</RouterLink>
+        <RouterLink to="/cookies" class="transition hover:text-brand-400">Cookies</RouterLink>
+      </div>
     </div>
   </footer>
 </template>

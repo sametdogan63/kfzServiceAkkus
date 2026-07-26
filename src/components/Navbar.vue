@@ -12,7 +12,7 @@
           </div>
         </RouterLink>
 
-        <div class="hidden items-center gap-1 lg:flex">
+        <div class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
           <RouterLink
             v-for="item in navItems"
             :key="item.path"
@@ -26,17 +26,13 @@
         </div>
 
         <div class="flex shrink-0 items-center gap-3">
-          <a href="tel:+49123456789" class="hidden gap-2 btn-primary py-2.5 px-5 text-xs lg:flex">
-            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 11c-.54-3.56-2.85-6.55-5.80-8.07-3.06-1.63-6.94-1.63-10 0-2.95 1.52-5.26 4.51-5.80 8.07-.07.47-.07.93 0 1.4.54 3.56 2.85 6.55 5.80 8.07 1.53.82 3.25 1.23 5 1.23s3.47-.41 5-1.23c2.95-1.52 5.26-4.51 5.80-8.07.07-.47.07-.93 0-1.4zM13 16h-2v-2h2v2zm0-4h-2V8h2v4z"></path></svg>
-            <span>Anrufen</span>
-          </a>
-          <button @click="toggleMenu" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 p-2.5 text-slate-200 transition hover:border-brand-500 hover:text-white lg:hidden" aria-label="Menü öffnen">
-            <svg v-if="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+          <RouterLink to="/termin" class="hidden gap-2 btn-primary px-4 py-2.5 text-xs lg:flex">
+            <CalendarDays class="h-4 w-4" aria-hidden="true" />
+            <span>Termin anfragen</span>
+          </RouterLink>
+          <button @click="toggleMenu" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-slate-200 transition hover:border-brand-400 hover:text-white lg:hidden" :aria-label="isOpen ? 'Menü schließen' : 'Menü öffnen'" :aria-expanded="isOpen" aria-controls="mobile-navigation">
+            <X v-if="isOpen" class="h-5 w-5" aria-hidden="true" />
+            <Menu v-else class="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -44,13 +40,17 @@
       <div v-if="isOpen" class="fixed inset-0 z-40 bg-neutral-950/70 backdrop-blur-sm lg:hidden" @click="closeMenu"></div>
 
       <transition name="slide-down">
-        <div v-if="isOpen" class="relative z-50 border-t border-white/10 bg-neutral-950/95 backdrop-blur-xl lg:hidden">
+        <div v-if="isOpen" id="mobile-navigation" class="relative z-50 border-t border-white/10 bg-neutral-950/95 backdrop-blur-xl lg:hidden">
           <div class="space-y-1 px-3 py-4">
             <RouterLink v-for="item in navItems" :key="item.path" :to="item.path" @click="closeMenu" class="flex rounded-2xl px-4 py-3 text-sm transition" :class="isActive(item.path) ? 'bg-white/10 text-white' : 'text-slate-200 hover:bg-white/5'">
               {{ item.label }}
             </RouterLink>
-            <a href="tel:+49123456789" class="mt-2 flex items-center gap-2 rounded-2xl px-4 py-3 text-sm text-white transition hover:bg-white/5">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 11c-.54-3.56-2.85-6.55-5.80-8.07-3.06-1.63-6.94-1.63-10 0-2.95 1.52-5.26 4.51-5.80 8.07-.07.47-.07.93 0 1.4.54 3.56 2.85 6.55 5.80 8.07 1.53.82 3.25 1.23 5 1.23s3.47-.41 5-1.23c2.95-1.52 5.26-4.51 5.80-8.07.07-.47.07-.93 0-1.4zM13 16h-2v-2h2v2zm0-4h-2V8h2v4z"></path></svg>
+            <RouterLink to="/termin" @click="closeMenu" class="mt-2 flex items-center gap-2 rounded-lg bg-brand-500 px-4 py-3 text-sm font-bold text-slate-950">
+              <CalendarDays class="h-4 w-4" aria-hidden="true" />
+              <span>Termin anfragen</span>
+            </RouterLink>
+            <a href="tel:+49123456789" class="flex items-center gap-2 rounded-lg px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5">
+              <Phone class="h-4 w-4" aria-hidden="true" />
               <span>Jetzt anrufen</span>
             </a>
           </div>
@@ -63,6 +63,7 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { CalendarDays, Menu, Phone, X } from 'lucide-vue-next'
 
 const route = useRoute()
 const isOpen = ref(false)

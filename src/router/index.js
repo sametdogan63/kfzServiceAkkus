@@ -8,6 +8,9 @@ const ContactPage = () => import('../pages/ContactPage.vue')
 const ReviewsPage = () => import('../pages/ReviewsPage.vue')
 const FAQPage = () => import('../pages/FAQPage.vue')
 const AppointmentAdminPage = () => import('../pages/AppointmentAdminPage.vue')
+const ImprintPage = () => import('../pages/ImprintPage.vue')
+const PrivacyPage = () => import('../pages/PrivacyPage.vue')
+const CookiePolicyPage = () => import('../pages/CookiePolicyPage.vue')
 
 const routes = [
   {
@@ -57,6 +60,24 @@ const routes = [
     name: 'AppointmentAdmin',
     component: AppointmentAdminPage,
     meta: { title: 'Terminverwaltung' }
+  },
+  {
+    path: '/impressum',
+    name: 'Imprint',
+    component: ImprintPage,
+    meta: { title: 'Impressum' }
+  },
+  {
+    path: '/datenschutz',
+    name: 'Privacy',
+    component: PrivacyPage,
+    meta: { title: 'Datenschutz' }
+  },
+  {
+    path: '/cookies',
+    name: 'CookiePolicy',
+    component: CookiePolicyPage,
+    meta: { title: 'Cookie-Richtlinie' }
   }
 ]
 

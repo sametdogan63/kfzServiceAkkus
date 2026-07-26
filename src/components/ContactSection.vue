@@ -42,18 +42,19 @@
         </div>
       </div>
 
-      <div class="rounded-[32px] border border-white/10 bg-slate-900/90 p-8 shadow-xl shadow-slate-950/30">
-        <div class="space-y-4">
-          <p class="text-sm uppercase tracking-[0.28em] text-brand-300">Anfrage</p>
-          <h3 class="text-2xl font-semibold text-white">Termin anfragen</h3>
-          <p class="text-sm leading-7 text-slate-400">Teilen Sie uns Ihr Anliegen mit. Unser Team kümmert sich um ein individuelles Angebot.</p>
+      <aside class="border-t-2 border-brand-500 bg-slate-900/90 p-8 shadow-xl shadow-slate-950/30 lg:sticky lg:top-28">
+        <div class="space-y-5">
+          <p class="text-sm uppercase tracking-[0.2em] text-brand-300">Direkter Weg</p>
+          <h3 class="text-2xl font-semibold text-white">Wann passt es Ihnen?</h3>
+          <p class="text-sm leading-7 text-slate-400">Waehlen Sie online Leistung und Wunschtermin. Der Betrieb prueft die Anfrage und bestaetigt sie per E-Mail.</p>
+          <RouterLink to="/termin" class="btn-primary w-full">Termin anfragen</RouterLink>
+          <a href="tel:+49123456789" class="btn-secondary w-full">Direkt anrufen</a>
         </div>
-        <AppointmentForm />
-      </div>
+      </aside>
     </div>
   </section>
 </template>
 
 <script setup>
-import AppointmentForm from './AppointmentForm.vue'
+import { RouterLink } from 'vue-router'
 </script>
