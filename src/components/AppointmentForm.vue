@@ -61,10 +61,21 @@
       </label>
     </div>
 
-    <label class="space-y-2 text-sm text-slate-200">
-      <span class="font-medium">Wunschdatum</span>
-      <input v-model="form.date" type="date" required class="input-field" />
-    </label>
+    <div class="space-y-3">
+      <p class="text-sm font-medium text-slate-200">Wunschtermin waehlen</p>
+      <AppointmentCapacityCalendar
+        ref="calendarRef"
+        v-model:selected-date="form.date"
+        v-model:selected-slot="form.slot"
+        :selected-service="form.service"
+      />
+      <p v-if="slotError" class="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-200">
+        {{ slotError }}
+      </p>
+      <p v-if="form.date && form.slot" class="text-sm text-slate-300">
+        Ausgewaehlt: {{ formatSelectedDate(form.date) }} um {{ form.slot }} Uhr
+      </p>
+    </div>
 
     <label class="space-y-2 text-sm text-slate-200">
       <span class="font-medium">Nachricht</span>
@@ -83,12 +94,14 @@
 
     <p v-if="successMessage" class="rounded-3xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-sm text-emerald-300">
       {{ successMessage }}
+      <span v-if="requestId" class="mt-2 block text-emerald-200">Ihre Anfrage-ID: {{ requestId }}</span>
     </p>
   </form>
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
+import AppointmentCapacityCalendar from './AppointmentCapacityCalendar.vue'
 import { submitAppointment } from '../services/appointmentService'
 
 const form = reactive({
@@ -101,15 +114,43 @@ const form = reactive({
   license: '',
   service: '',
   date: '',
+  slot: '',
   message: '',
   agree: false
 })
 
 const successMessage = ref('')
+const slotError = ref('')
+const calendarRef = ref(null)
+const requestId = ref('')
+
+const formatSelectedDate = (isoDate) => {
+  return new Date(isoDate).toLocaleDateString('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  })
+}
 
 const submitForm = async () => {
-  await submitAppointment({ ...form })
-  successMessage.value = 'Ihre Anfrage wurde erfolgreich gesendet. Wir kontaktieren Sie schnellstmöglich.'
+  slotError.value = ''
+
+  if (!form.date || !form.slot) {
+    slotError.value = 'Bitte waehlen Sie zuerst einen verfuegbaren Tag und Zeit-Slot aus.'
+    return
+  }
+
+  const result = await submitAppointment({ ...form })
+
+  if (!result.success) {
+    slotError.value = result.error?.message || 'Termin konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.'
+    await calendarRef.value?.refreshDays()
+    return
+  }
+
+  requestId.value = result.appointment?.id || ''
+  successMessage.value = 'Ihre Anfrage wurde gesendet. Der Termin ist nach Bestaetigung durch den KFZ-Betrieb verbindlich.'
+
   Object.keys(form).forEach((key) => {
     if (typeof form[key] === 'boolean') {
       form[key] = false
@@ -117,5 +158,17 @@ const submitForm = async () => {
       form[key] = ''
     }
   })
+
+  await calendarRef.value?.refreshDays()
 }
+
+watch(
+  () => form.service,
+  async () => {
+    form.date = ''
+    form.slot = ''
+    slotError.value = ''
+    await calendarRef.value?.refreshDays()
+  }
+)
 </script>

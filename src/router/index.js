@@ -7,6 +7,7 @@ const AppointmentPage = () => import('../pages/AppointmentPage.vue')
 const ContactPage = () => import('../pages/ContactPage.vue')
 const ReviewsPage = () => import('../pages/ReviewsPage.vue')
 const FAQPage = () => import('../pages/FAQPage.vue')
+const AppointmentAdminPage = () => import('../pages/AppointmentAdminPage.vue')
 
 const routes = [
   {
@@ -50,6 +51,12 @@ const routes = [
     name: 'FAQ',
     component: FAQPage,
     meta: { title: 'FAQ' }
+  },
+  {
+    path: '/intern/termine',
+    name: 'AppointmentAdmin',
+    component: AppointmentAdminPage,
+    meta: { title: 'Terminverwaltung' }
   }
 ]
 
