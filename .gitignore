@@ -8,6 +8,9 @@ dist/
 .env
 .env.*
 
+# Supabase CLI local metadata
+supabase/.temp/
+
 # system files
 .DS_Store
 Thumbs.db

@@ -6,6 +6,9 @@ create extension if not exists btree_gist;
 
 create type public.appointment_status as enum ('pending', 'confirmed', 'declined');
 
+-- Ein bestaetigter Termin kann nachtraeglich storniert werden und gibt den Slot frei.
+alter type public.appointment_status add value if not exists 'cancelled';
+
 create table public.admin_users (
   user_id uuid primary key references auth.users(id) on delete cascade,
   created_at timestamptz not null default now()

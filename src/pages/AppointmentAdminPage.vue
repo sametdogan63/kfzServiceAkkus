@@ -94,6 +94,10 @@
             <p class="mt-1 text-slate-200 whitespace-pre-line">{{ appointment.message }}</p>
           </div>
 
+          <p v-if="appointment.status === statuses.PENDING && hasConfirmedConflict(appointment)" class="border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-200">
+            Dieser Wunschtermin ueberschneidet sich mit einem bereits bestaetigten Termin. Bitte ablehnen oder einen alternativen Termin vereinbaren.
+          </p>
+
           <label v-if="appointment.status === statuses.PENDING" class="space-y-2 text-sm text-slate-200 block">
             <span class="font-medium">Antwort an Kunden</span>
             <textarea
@@ -105,11 +109,40 @@
           </label>
 
           <div v-if="appointment.status === statuses.PENDING" class="flex flex-wrap gap-3">
-            <button type="button" class="btn-primary" :disabled="isSaving" @click="confirm(appointment)">Bestaetigen</button>
+            <button type="button" class="btn-primary" :disabled="isSaving || hasConfirmedConflict(appointment)" @click="confirm(appointment)">Bestaetigen</button>
             <button type="button" class="btn-secondary" :disabled="isSaving" @click="decline(appointment)">Ablehnen</button>
           </div>
+          <div v-else-if="appointment.status === statuses.CONFIRMED" class="border-t border-white/10 pt-4 space-y-4">
+            <h3 class="text-base font-semibold text-white">Termin aendern</h3>
+            <label class="space-y-2 text-sm text-slate-200 block">
+              <span class="font-medium">Information an Kunden</span>
+              <textarea
+                v-model="responseText[appointment.id]"
+                rows="3"
+                class="input-field"
+                placeholder="Bitte informieren Sie den Kunden ueber die Aenderung."
+              ></textarea>
+            </label>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" class="btn-secondary" :disabled="isSaving" @click="cancel(appointment)">Termin stornieren</button>
+              <button type="button" class="btn-ghost" :disabled="isSaving" @click="toggleReschedule(appointment)">
+                {{ rescheduleOpen[appointment.id] ? 'Verschieben schliessen' : 'Termin verschieben' }}
+              </button>
+            </div>
+            <div v-if="rescheduleOpen[appointment.id]" class="grid gap-3 border border-brand-500/20 bg-brand-500/10 p-4 sm:grid-cols-2">
+              <label class="space-y-2 text-sm text-slate-200">
+                <span class="font-medium">Neues Datum</span>
+                <input v-model="rescheduleDate[appointment.id]" class="input-field" type="date" :min="today" />
+              </label>
+              <label class="space-y-2 text-sm text-slate-200">
+                <span class="font-medium">Neue Uhrzeit</span>
+                <input v-model="rescheduleSlot[appointment.id]" class="input-field" type="time" step="1800" />
+              </label>
+              <button type="button" class="btn-primary sm:col-span-2" :disabled="isSaving" @click="reschedule(appointment)">Neuen Termin speichern und Kunden informieren</button>
+            </div>
+          </div>
           <p v-else class="text-sm text-slate-400">
-            {{ appointment.status === statuses.CONFIRMED ? 'Der Termin blockiert die entsprechende Zeit im Kundenkalender.' : 'Dieser Wunschslot ist wieder fuer weitere Kunden anfragbar.' }}
+            {{ appointment.status === statuses.CANCELLED ? 'Der Termin wurde storniert. Der Slot ist wieder fuer weitere Kunden anfragbar.' : 'Dieser Wunschslot ist wieder fuer weitere Kunden anfragbar.' }}
           </p>
         </article>
         </div>
@@ -174,16 +207,21 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import { CalendarClock, RefreshCw } from 'lucide-vue-next'
 import {
   confirmAppointment,
+  cancelAppointment,
   declineAppointment,
   getAdminSession,
   getAppointmentStatuses,
   listAppointments,
+  rescheduleAppointment,
   signInAdmin,
   signOutAdmin
 } from '../services/appointmentProductionService'
 import { isSupabaseConfigured } from '../services/supabaseClient'
 
 const responseText = reactive({})
+const rescheduleOpen = reactive({})
+const rescheduleDate = reactive({})
+const rescheduleSlot = reactive({})
 const appointments = ref([])
 const statuses = getAppointmentStatuses()
 const activeView = ref('pending')
@@ -199,12 +237,14 @@ const views = [
   { value: 'pending', label: 'Offen' },
   { value: 'confirmed', label: 'Bestaetigt' },
   { value: 'declined', label: 'Abgelehnt' },
+  { value: 'cancelled', label: 'Storniert' },
   { value: 'all', label: 'Alle' }
 ]
 
 const pendingAppointments = computed(() => appointments.value.filter((entry) => entry.status === statuses.PENDING))
 const confirmedAppointments = computed(() => appointments.value.filter((entry) => entry.status === statuses.CONFIRMED))
 const declinedAppointments = computed(() => appointments.value.filter((entry) => entry.status === statuses.DECLINED))
+const today = new Date().toLocaleDateString('en-CA')
 const visibleAppointments = computed(() => {
   if (activeView.value === 'all') {
     return appointments.value
@@ -245,13 +285,32 @@ const formatDuration = (minutes) => {
 const statusLabel = (status) => {
   if (status === statuses.CONFIRMED) return 'Bestaetigt'
   if (status === statuses.DECLINED) return 'Abgelehnt'
+  if (status === statuses.CANCELLED) return 'Storniert'
   return 'Offen'
 }
 
 const statusClass = (status) => {
   if (status === statuses.CONFIRMED) return 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
-  if (status === statuses.DECLINED) return 'border-rose-500/30 bg-rose-500/10 text-rose-200'
+  if (status === statuses.DECLINED || status === statuses.CANCELLED) return 'border-rose-500/30 bg-rose-500/10 text-rose-200'
   return 'border-amber-500/30 bg-amber-500/10 text-amber-200'
+}
+
+const toMinutes = (timeValue) => {
+  const [hour, minute] = String(timeValue).slice(0, 5).split(':').map(Number)
+  return hour * 60 + minute
+}
+
+const hasConfirmedConflict = (appointment) => {
+  const appointmentStart = toMinutes(appointment.slot)
+  const appointmentEnd = appointmentStart + Number(appointment.durationMinutes)
+
+  return confirmedAppointments.value.some((confirmed) => {
+    if (confirmed.date !== appointment.date) return false
+
+    const confirmedStart = toMinutes(confirmed.slot)
+    const confirmedEnd = confirmedStart + Number(confirmed.durationMinutes)
+    return appointmentStart < confirmedEnd && confirmedStart < appointmentEnd
+  })
 }
 
 const refreshData = async () => {
@@ -267,6 +326,11 @@ const refreshData = async () => {
 }
 
 const confirm = async (appointment) => {
+  if (hasConfirmedConflict(appointment)) {
+    loadError.value = 'Dieser Zeitraum ist bereits durch einen bestaetigten Termin belegt.'
+    return
+  }
+
   const fallback = 'Ihr Termin wurde bestaetigt. Vielen Dank fuer Ihre Anfrage.'
   isSaving.value = true
   loadError.value = ''
@@ -289,6 +353,57 @@ const decline = async (appointment) => {
     await refreshData()
   } catch (error) {
     loadError.value = error.message || 'Termin konnte nicht abgelehnt werden.'
+  } finally {
+    isSaving.value = false
+  }
+}
+
+const requireCustomerMessage = (appointment) => {
+  if (responseText[appointment.id]?.trim()) return true
+  loadError.value = 'Bitte geben Sie eine Information fuer den Kunden ein.'
+  return false
+}
+
+const cancel = async (appointment) => {
+  if (!requireCustomerMessage(appointment)) return
+
+  isSaving.value = true
+  loadError.value = ''
+  try {
+    await cancelAppointment(appointment.id, responseText[appointment.id].trim())
+    await refreshData()
+  } catch (error) {
+    loadError.value = error.message || 'Termin konnte nicht storniert werden.'
+  } finally {
+    isSaving.value = false
+  }
+}
+
+const toggleReschedule = (appointment) => {
+  rescheduleOpen[appointment.id] = !rescheduleOpen[appointment.id]
+  rescheduleDate[appointment.id] ||= appointment.date
+  rescheduleSlot[appointment.id] ||= appointment.slot
+}
+
+const reschedule = async (appointment) => {
+  if (!requireCustomerMessage(appointment)) return
+  if (!rescheduleDate[appointment.id] || !rescheduleSlot[appointment.id]) {
+    loadError.value = 'Bitte geben Sie ein neues Datum und eine neue Uhrzeit ein.'
+    return
+  }
+
+  isSaving.value = true
+  loadError.value = ''
+  try {
+    await rescheduleAppointment(appointment, {
+      date: rescheduleDate[appointment.id],
+      slot: rescheduleSlot[appointment.id],
+      message: responseText[appointment.id].trim()
+    })
+    rescheduleOpen[appointment.id] = false
+    await refreshData()
+  } catch (error) {
+    loadError.value = error.message || 'Termin konnte nicht verschoben werden.'
   } finally {
     isSaving.value = false
   }

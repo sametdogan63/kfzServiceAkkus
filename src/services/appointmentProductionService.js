@@ -4,7 +4,8 @@ import { requireSupabase } from './supabaseClient'
 const APPOINTMENT_STATUS = {
   PENDING: 'pending',
   CONFIRMED: 'confirmed',
-  DECLINED: 'declined'
+  DECLINED: 'declined',
+  CANCELLED: 'cancelled'
 }
 
 function toIsoDate(date) {
@@ -28,6 +29,14 @@ function minutesToTime(totalMinutes) {
   const hour = String(Math.floor(totalMinutes / 60)).padStart(2, '0')
   const minute = String(totalMinutes % 60).padStart(2, '0')
   return `${hour}:${minute}`
+}
+
+function normalizeTime(value) {
+  return String(value).slice(0, 5)
+}
+
+function addMinutesToTime(value, minutes) {
+  return minutesToTime(timeToMinutes(normalizeTime(value)) + minutes)
 }
 
 function getServiceDurationMinutes(serviceName) {
@@ -69,7 +78,7 @@ function buildOccupiedIntervals(bookings, allSlots) {
   const occupied = new Set()
 
   bookings.forEach((booking) => {
-    const startIndex = slotIndexMap.get(booking.slot)
+    const startIndex = slotIndexMap.get(normalizeTime(booking.slot))
     if (startIndex === undefined) return
 
     const bookingSlots = Math.ceil(booking.duration_minutes / appointmentPlannerConfig.slotIntervalMinutes)
@@ -96,6 +105,10 @@ function mapAppointment(record) {
 }
 
 function createError(error, fallback) {
+  if (error?.code === '23P01') {
+    return new Error('Dieser Zeitraum ist bereits durch einen bestaetigten Termin belegt.')
+  }
+
   return new Error(error?.message || fallback)
 }
 
@@ -131,11 +144,9 @@ export async function getAvailabilityWindow({ startDate = new Date(), days, sele
         && allSlots.slice(slotIndex, slotIndex + durationSlots).every((slotValue) => !occupied.has(slotValue))
       return { value: slot, available }
     })
-    const capacity = allSlots.reduce((count, _, slotIndex) => count + Number(
-      slotIndex + durationSlots <= allSlots.length && isContinuousWindow(allSlots, slotIndex, durationSlots)
-    ), 0)
-    const remaining = slots.filter((slot) => slot.available).length
-    const used = Math.max(capacity - remaining, 0)
+    const capacity = allSlots.length
+    const remaining = allSlots.filter((slot) => !occupied.has(slot)).length
+    const used = occupied.size
 
     windowDays.push({
       date,
@@ -211,10 +222,10 @@ export async function updateAppointmentStatus(appointmentId, status, message = '
   return mapAppointment(data)
 }
 
-async function notifyCustomer(appointmentId, message) {
+async function notifyCustomer(appointmentId, message, notificationType) {
   const client = requireSupabase()
   const { error } = await client.functions.invoke('send-appointment-status', {
-    body: { appointmentId, message }
+    body: { appointmentId, message, notificationType }
   })
 
   if (error) throw createError(error, 'Status wurde gespeichert, aber die E-Mail konnte nicht versendet werden.')
@@ -222,14 +233,46 @@ async function notifyCustomer(appointmentId, message) {
 
 export async function confirmAppointment(appointmentId, message) {
   const appointment = await updateAppointmentStatus(appointmentId, APPOINTMENT_STATUS.CONFIRMED, message)
-  await notifyCustomer(appointment.id, message)
+  await notifyCustomer(appointment.id, message, 'confirmed')
   return appointment
 }
 
 export async function declineAppointment(appointmentId, message) {
   const appointment = await updateAppointmentStatus(appointmentId, APPOINTMENT_STATUS.DECLINED, message)
-  await notifyCustomer(appointment.id, message)
+  await notifyCustomer(appointment.id, message, 'declined')
   return appointment
+}
+
+export async function cancelAppointment(appointmentId, message) {
+  const appointment = await updateAppointmentStatus(appointmentId, APPOINTMENT_STATUS.CANCELLED, message)
+  await notifyCustomer(appointment.id, message, 'cancelled')
+  return appointment
+}
+
+export async function rescheduleAppointment(appointment, { date, slot, message }) {
+  const client = requireSupabase()
+  const startsAt = `${date}T${normalizeTime(slot)}:00`
+  const endsAt = `${date}T${addMinutesToTime(slot, appointment.durationMinutes)}:00`
+  const { data, error } = await client
+    .from('appointments')
+    .update({
+      appointment_date: date,
+      slot: normalizeTime(slot),
+      starts_at: startsAt,
+      ends_at: endsAt,
+      admin_message: message,
+      decided_at: new Date().toISOString(),
+      decided_by: (await client.auth.getUser()).data.user?.id
+    })
+    .eq('id', appointment.id)
+    .eq('status', APPOINTMENT_STATUS.CONFIRMED)
+    .select()
+    .single()
+
+  if (error) throw createError(error, 'Termin konnte nicht verschoben werden.')
+  const updatedAppointment = mapAppointment(data)
+  await notifyCustomer(updatedAppointment.id, message, 'rescheduled')
+  return updatedAppointment
 }
 
 export async function getAdminSession() {

@@ -39,7 +39,7 @@ Deno.serve(async (request) => {
       return new Response(JSON.stringify({ error: 'Keine Berechtigung.' }), { status: 403, headers: corsHeaders })
     }
 
-    const { appointmentId, message } = await request.json()
+    const { appointmentId, message, notificationType } = await request.json()
     const { data: appointment, error: appointmentError } = await client
       .from('appointments')
       .select('name, email, service, appointment_date, slot, status')
@@ -50,13 +50,29 @@ Deno.serve(async (request) => {
       throw new Error('Termin nicht gefunden.')
     }
 
-    const statusText = appointment.status === 'confirmed' ? 'bestaetigt' : 'abgelehnt'
-    const subject = appointment.status === 'confirmed'
-      ? `Ihr Termin bei KfzServiceAkkus am ${appointment.appointment_date}`
-      : `Rueckmeldung zu Ihrer Terminanfrage bei KfzServiceAkkus`
-    const fallback = appointment.status === 'confirmed'
-      ? `Ihr Termin fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde bestaetigt.`
-      : `Leider kann Ihre Anfrage fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr nicht bestaetigt werden.`
+    const templates = {
+      confirmed: {
+        status: 'bestaetigt',
+        subject: `Ihr Termin bei KfzServiceAkkus am ${appointment.appointment_date}`,
+        fallback: `Ihr Termin fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde bestaetigt.`
+      },
+      declined: {
+        status: 'abgelehnt',
+        subject: 'Rueckmeldung zu Ihrer Terminanfrage bei KfzServiceAkkus',
+        fallback: `Leider kann Ihre Anfrage fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr nicht bestaetigt werden.`
+      },
+      cancelled: {
+        status: 'storniert',
+        subject: 'Ihr Termin bei KfzServiceAkkus wurde storniert',
+        fallback: `Ihr Termin fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde storniert.`
+      },
+      rescheduled: {
+        status: 'verschoben',
+        subject: `Ihr Termin bei KfzServiceAkkus wurde verschoben`,
+        fallback: `Ihr Termin fuer ${appointment.service} findet neu am ${appointment.appointment_date} um ${appointment.slot} Uhr statt.`
+      }
+    }
+    const template = templates[notificationType] || templates.confirmed
 
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -67,8 +83,8 @@ Deno.serve(async (request) => {
       body: JSON.stringify({
         from: senderAddress,
         to: [appointment.email],
-        subject,
-        text: `Hallo ${appointment.name},\n\n${message || fallback}\n\nStatus: ${statusText}\n\nKfzServiceAkkus\nGermaniastraße 160, 45355 Essen\nTelefon: 01577 7533784`
+        subject: template.subject,
+        text: `Hallo ${appointment.name},\n\n${message || template.fallback}\n\nStatus: ${template.status}\n\nWenn der neue Termin nicht passt oder Sie ihn vollstaendig absagen moechten, antworten Sie bitte auf diese E-Mail.\n\nKfzServiceAkkus\nGermaniastraße 160, 45355 Essen\nTelefon: 01577 7533784`
       })
     })
 
@@ -80,7 +96,8 @@ Deno.serve(async (request) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message || 'Unbekannter Fehler.' }), {
+    const message = error instanceof Error ? error.message : 'Unbekannter Fehler.'
+    return new Response(JSON.stringify({ error: message }), {
       status: 400,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
