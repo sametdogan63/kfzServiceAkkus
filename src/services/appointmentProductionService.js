@@ -228,7 +228,10 @@ async function notifyCustomer(appointmentId, message, notificationType) {
     body: { appointmentId, message, notificationType }
   })
 
-  if (error) throw createError(error, 'Status wurde gespeichert, aber die E-Mail konnte nicht versendet werden.')
+  if (error) {
+    const details = error.context instanceof Response ? await error.context.json().catch(() => null) : null
+    throw new Error(details?.error || 'Status wurde gespeichert, aber die E-Mail konnte nicht versendet werden.')
+  }
 }
 
 export async function confirmAppointment(appointmentId, message) {

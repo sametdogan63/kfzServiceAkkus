@@ -20,6 +20,9 @@ Deno.serve(async (request) => {
     const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!
     const resendApiKey = Deno.env.get('RESEND_API_KEY')!
     const senderAddress = Deno.env.get('APPOINTMENT_SENDER_EMAIL')!
+    if (!resendApiKey || !senderAddress) {
+      throw new Error('E-Mail-Versand ist noch nicht konfiguriert. Bitte RESEND_API_KEY und APPOINTMENT_SENDER_EMAIL in Supabase setzen.')
+    }
     const client = createClient(supabaseUrl, supabaseAnonKey, {
       global: { headers: { Authorization: authorization } }
     })
@@ -89,7 +92,8 @@ Deno.serve(async (request) => {
     })
 
     if (!resendResponse.ok) {
-      throw new Error('E-Mail konnte nicht versendet werden.')
+      const resendError = await resendResponse.json().catch(() => null)
+      throw new Error(resendError?.message || 'E-Mail konnte nicht versendet werden.')
     }
 
     return new Response(JSON.stringify({ success: true }), {
