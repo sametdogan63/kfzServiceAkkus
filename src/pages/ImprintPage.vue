@@ -39,7 +39,7 @@
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Verantwortlich fuer den Inhalt gemaess § 18 Abs. 2 MStV</h2>
+          <h2 class="text-xl font-semibold text-white">Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</h2>
           <p>Sefkan Akkus, Germaniastraße 160, 45355 Essen</p>
         </section>
 
@@ -51,9 +51,7 @@
         </section>
       </div>
 
-      <p class="text-sm leading-6 text-slate-400">
-        Stand: 27. Juli 2026. Die fruehere Anschrift Am Stadthafen 19, 45356 Essen wird nicht verwendet.
-      </p>
+      <p class="text-sm leading-6 text-slate-400">Stand: 27. Juli 2026.</p>
     </div>
   </section>
 </template>

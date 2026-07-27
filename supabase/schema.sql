@@ -6,7 +6,7 @@ create extension if not exists btree_gist;
 
 create type public.appointment_status as enum ('pending', 'confirmed', 'declined');
 
--- Ein bestaetigter Termin kann nachtraeglich storniert werden und gibt den Slot frei.
+-- Ein bestätigter Termin kann nachträglich storniert werden und gibt den Slot frei.
 alter type public.appointment_status add value if not exists 'cancelled';
 
 create table public.admin_users (
@@ -39,7 +39,7 @@ create table public.appointments (
   constraint appointment_end_after_start check (ends_at > starts_at)
 );
 
--- Zwei bestaetigte Werkstatttermine duerfen sich zeitlich nicht ueberlappen.
+-- Zwei bestätigte Werkstatttermine dürfen sich zeitlich nicht überlappen.
 -- Offene Anfragen werden zusaetzlich in submit_appointment atomar als Reservierung behandelt.
 alter table public.appointments
   add constraint confirmed_appointments_must_not_overlap
@@ -94,7 +94,7 @@ to authenticated
 using (public.is_admin())
 with check (public.is_admin());
 
--- Die oeffentliche Website bekommt nur reservierte Blockzeiten, nie Kundendaten.
+-- Die öffentliche Website bekommt nur reservierte Blockzeiten, nie Kundendaten.
 create or replace function public.get_calendar_bookings(p_start date, p_end date)
 returns table (appointment_date date, slot time, duration_minutes integer)
 language sql
@@ -111,7 +111,7 @@ $$;
 
 grant execute on function public.get_calendar_bookings(date, date) to anon, authenticated;
 
--- Oeffentliche Anfragen werden ausschliesslich ueber diese Funktion angelegt.
+-- Öffentliche Anfragen werden ausschließlich über diese Funktion angelegt.
 create or replace function public.submit_appointment(
   p_name text,
   p_phone text,
@@ -158,7 +158,7 @@ begin
         '[)'
       )
   ) then
-    raise exception 'Der gewaehlte Zeitraum wurde inzwischen reserviert. Bitte waehlen Sie einen anderen Slot.'
+    raise exception 'Der gewählte Zeitraum wurde inzwischen reserviert. Bitte wählen Sie einen anderen Slot.'
       using errcode = '23P01';
   end if;
 

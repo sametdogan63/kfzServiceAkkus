@@ -5,7 +5,7 @@
       <div class="max-w-4xl">
         <p class="section-subtitle mb-4">Online Buchung</p>
         <h1 class="text-5xl lg:text-6xl font-bold mb-6">Termin vereinbaren</h1>
-        <p class="text-xl text-slate-300 leading-relaxed">Senden Sie Ihre Anfrage mit Leistung und Wunschtermin. Der Betrieb prueft die Verfuegbarkeit und bestaetigt Ihren Termin per E-Mail.</p>
+        <p class="text-xl text-slate-300 leading-relaxed">Senden Sie Ihre Anfrage mit Leistung und Wunschtermin. Der Betrieb prüft die Verfügbarkeit und bestätigt Ihren Termin per E-Mail.</p>
       </div>
     </section>
 
@@ -35,13 +35,13 @@
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">3</div>
                 <div>
                   <p class="font-semibold text-white">Betrieb prueft die Anfrage</p>
-                  <p class="text-sm text-slate-400 mt-1">Wir bestaetigen oder schlagen eine Alternative vor</p>
+                  <p class="text-sm text-slate-400 mt-1">Wir bestätigen oder schlagen eine Alternative vor</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">4</div>
                 <div>
-                  <p class="font-semibold text-white">Bestaetigung per E-Mail</p>
+                  <p class="font-semibold text-white">Bestätigung per E-Mail</p>
                   <p class="text-sm text-slate-400 mt-1">Danach ist Ihr Termin verbindlich</p>
                 </div>
               </div>

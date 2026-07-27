@@ -5,7 +5,7 @@
       <div>
         <h1 class="text-4xl lg:text-5xl font-bold mb-4">Termin-Dashboard</h1>
         <p class="max-w-2xl text-slate-300">
-          Neue Anfragen pruefen, Termine bestaetigen und den aktuellen Werkstattplan im Blick behalten.
+          Neue Anfragen prüfen, Termine bestätigen und den aktuellen Werkstattplan im Blick behalten.
         </p>
       </div>
       <div class="flex flex-wrap gap-3">
@@ -24,7 +24,7 @@
         <p class="mt-1 text-sm text-amber-100/80">Brauchen eine Entscheidung</p>
       </div>
       <div class="border-l-2 border-emerald-400 bg-emerald-500/10 p-5">
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">Bestaetigt</p>
+        <p class="text-xs font-bold uppercase tracking-[0.16em] text-emerald-200">Bestätigt</p>
         <p class="mt-2 text-3xl font-bold text-white">{{ confirmedAppointments.length }}</p>
         <p class="mt-1 text-sm text-emerald-100/80">Blockieren die Kalenderzeit</p>
       </div>
@@ -41,7 +41,7 @@
         <div class="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h2 class="text-xl font-semibold text-white">Terminliste</h2>
-            <p class="mt-1 text-sm text-slate-400">{{ visibleAppointments.length }} Eintraege in dieser Ansicht</p>
+            <p class="mt-1 text-sm text-slate-400">{{ visibleAppointments.length }} Einträge in dieser Ansicht</p>
           </div>
           <div class="flex flex-wrap gap-2" aria-label="Terminstatus filtern">
             <button
@@ -95,7 +95,7 @@
           </div>
 
           <p v-if="appointment.status === statuses.PENDING && hasConfirmedConflict(appointment)" class="border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-200">
-            Dieser Wunschtermin ueberschneidet sich mit einem bereits bestaetigten Termin. Bitte ablehnen oder einen alternativen Termin vereinbaren.
+            Dieser Wunschtermin überschneidet sich mit einem bereits bestätigten Termin. Bitte ablehnen oder einen alternativen Termin vereinbaren.
           </p>
 
           <label v-if="appointment.status === statuses.PENDING" class="space-y-2 text-sm text-slate-200 block">
@@ -104,29 +104,29 @@
               v-model="responseText[appointment.id]"
               rows="3"
               class="input-field"
-              placeholder="z. B. Ihr Termin wurde bestaetigt. Bitte bringen Sie Fahrzeugschein mit."
+              placeholder="z. B. Ihr Termin wurde bestätigt. Bitte bringen Sie Fahrzeugschein mit."
             ></textarea>
           </label>
 
           <div v-if="appointment.status === statuses.PENDING" class="flex flex-wrap gap-3">
-            <button type="button" class="btn-primary" :disabled="isSaving || hasConfirmedConflict(appointment)" @click="confirm(appointment)">Bestaetigen</button>
+            <button type="button" class="btn-primary" :disabled="isSaving || hasConfirmedConflict(appointment)" @click="confirm(appointment)">Bestätigen</button>
             <button type="button" class="btn-secondary" :disabled="isSaving" @click="decline(appointment)">Ablehnen</button>
           </div>
           <div v-else-if="appointment.status === statuses.CONFIRMED" class="border-t border-white/10 pt-4 space-y-4">
-            <h3 class="text-base font-semibold text-white">Termin aendern</h3>
+            <h3 class="text-base font-semibold text-white">Termin ändern</h3>
             <label class="space-y-2 text-sm text-slate-200 block">
               <span class="font-medium">Information an Kunden</span>
               <textarea
                 v-model="responseText[appointment.id]"
                 rows="3"
                 class="input-field"
-                placeholder="Bitte informieren Sie den Kunden ueber die Aenderung."
+                placeholder="Bitte informieren Sie den Kunden über die Änderung."
               ></textarea>
             </label>
             <div class="flex flex-wrap gap-3">
               <button type="button" class="btn-secondary" :disabled="isSaving" @click="cancel(appointment)">Termin stornieren</button>
               <button type="button" class="btn-ghost" :disabled="isSaving" @click="toggleReschedule(appointment)">
-                {{ rescheduleOpen[appointment.id] ? 'Verschieben schliessen' : 'Termin verschieben' }}
+                {{ rescheduleOpen[appointment.id] ? 'Verschieben schließen' : 'Termin verschieben' }}
               </button>
             </div>
             <div v-if="rescheduleOpen[appointment.id]" class="grid gap-3 border border-brand-500/20 bg-brand-500/10 p-4 sm:grid-cols-2">
@@ -142,7 +142,7 @@
             </div>
           </div>
           <p v-else class="text-sm text-slate-400">
-            {{ appointment.status === statuses.CANCELLED ? 'Der Termin wurde storniert. Der Slot ist wieder fuer weitere Kunden anfragbar.' : 'Dieser Wunschslot ist wieder fuer weitere Kunden anfragbar.' }}
+            {{ appointment.status === statuses.CANCELLED ? 'Der Termin wurde storniert. Der Slot ist wieder für weitere Kunden anfragbar.' : 'Dieser Wunschslot ist wieder für weitere Kunden anfragbar.' }}
           </p>
         </article>
         </div>
@@ -152,9 +152,9 @@
         <div class="card-base p-6">
           <div class="flex items-center gap-3">
             <CalendarClock class="h-5 w-5 text-brand-300" aria-hidden="true" />
-            <h2 class="text-xl font-semibold text-white">Naechste Termine</h2>
+            <h2 class="text-xl font-semibold text-white">Nächste Termine</h2>
           </div>
-          <div v-if="upcomingConfirmed.length === 0" class="mt-5 text-sm text-slate-400">Noch keine zukuenftigen, bestaetigten Termine.</div>
+          <div v-if="upcomingConfirmed.length === 0" class="mt-5 text-sm text-slate-400">Noch keine zukünftigen, bestätigten Termine.</div>
           <div v-else class="mt-5 space-y-4">
             <div v-for="appointment in upcomingConfirmed" :key="appointment.id" class="border-l-2 border-emerald-400 pl-3">
               <p class="font-semibold text-white">{{ appointment.date }} | {{ appointment.slot }} Uhr</p>
@@ -167,7 +167,7 @@
       <div class="card-base space-y-4 p-6">
         <h2 class="text-xl font-semibold text-white">Kundenantwort</h2>
         <p class="text-sm leading-6 text-slate-300">
-          Bei Bestaetigung oder Ablehnung versendet die geschuetzte Server-Funktion die hinterlegte Antwort per E-Mail an den Kunden.
+          Bei Bestätigung oder Ablehnung versendet die geschützte Server-Funktion die hinterlegte Antwort per E-Mail an den Kunden.
         </p>
         <p class="text-xs leading-5 text-slate-500">
           Der Versand wird erst aktiv, nachdem die Supabase Edge Function und Resend konfiguriert wurden.
@@ -179,9 +179,9 @@
 
   <section v-else class="section-container section-spacing py-16 lg:py-24">
     <div class="mx-auto max-w-md border-t-2 border-brand-500 bg-slate-900/80 p-7 shadow-panel sm:p-9">
-      <p class="section-subtitle">Geschuetzter Bereich</p>
+      <p class="section-subtitle">Geschützter Bereich</p>
       <h1 class="mt-3 text-3xl text-white">Termin-Dashboard</h1>
-      <p class="mt-3 text-sm leading-6 text-slate-400">Melden Sie sich mit dem fuer den Betrieb eingerichteten Zugang an.</p>
+      <p class="mt-3 text-sm leading-6 text-slate-400">Melden Sie sich mit dem für den Betrieb eingerichteten Zugang an.</p>
 
       <form class="mt-7 space-y-5" @submit.prevent="login">
         <label class="block space-y-2 text-sm font-medium text-slate-200">
@@ -195,7 +195,7 @@
         <p v-if="loginError" class="border border-rose-500/30 bg-rose-500/10 p-3 text-sm text-rose-200">{{ loginError }}</p>
         <p v-if="!isConfigured" class="border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-100">Supabase ist noch nicht konfiguriert. Hinterlegen Sie zuerst die Vercel-Umgebungsvariablen.</p>
         <button type="submit" class="btn-primary w-full" :disabled="isLoading || !isConfigured">
-          {{ isLoading ? 'Anmeldung wird geprueft ...' : 'Anmelden' }}
+          {{ isLoading ? 'Anmeldung wird geprüft ...' : 'Anmelden' }}
         </button>
       </form>
     </div>
@@ -235,7 +235,7 @@ const isSaving = ref(false)
 const isConfigured = isSupabaseConfigured
 const views = [
   { value: 'pending', label: 'Offen' },
-  { value: 'confirmed', label: 'Bestaetigt' },
+  { value: 'confirmed', label: 'Bestätigt' },
   { value: 'declined', label: 'Abgelehnt' },
   { value: 'cancelled', label: 'Storniert' },
   { value: 'all', label: 'Alle' }
@@ -283,7 +283,7 @@ const formatDuration = (minutes) => {
 }
 
 const statusLabel = (status) => {
-  if (status === statuses.CONFIRMED) return 'Bestaetigt'
+  if (status === statuses.CONFIRMED) return 'Bestätigt'
   if (status === statuses.DECLINED) return 'Abgelehnt'
   if (status === statuses.CANCELLED) return 'Storniert'
   return 'Offen'
@@ -327,25 +327,25 @@ const refreshData = async () => {
 
 const confirm = async (appointment) => {
   if (hasConfirmedConflict(appointment)) {
-    loadError.value = 'Dieser Zeitraum ist bereits durch einen bestaetigten Termin belegt.'
+    loadError.value = 'Dieser Zeitraum ist bereits durch einen bestätigten Termin belegt.'
     return
   }
 
-  const fallback = 'Ihr Termin wurde bestaetigt. Vielen Dank fuer Ihre Anfrage.'
+  const fallback = 'Ihr Termin wurde bestätigt. Vielen Dank für Ihre Anfrage.'
   isSaving.value = true
   loadError.value = ''
   try {
     await confirmAppointment(appointment.id, responseText[appointment.id] || fallback)
     await refreshData()
   } catch (error) {
-    loadError.value = error.message || 'Termin konnte nicht bestaetigt werden.'
+    loadError.value = error.message || 'Termin konnte nicht bestätigt werden.'
   } finally {
     isSaving.value = false
   }
 }
 
 const decline = async (appointment) => {
-  const fallback = 'Leider koennen wir den gewuenschten Termin nicht bestaetigen. Bitte waehlen Sie einen anderen Slot.'
+  const fallback = 'Leider können wir den gewünschten Termin nicht bestätigen. Bitte wählen Sie einen anderen Slot.'
   isSaving.value = true
   loadError.value = ''
   try {
@@ -360,7 +360,7 @@ const decline = async (appointment) => {
 
 const requireCustomerMessage = (appointment) => {
   if (responseText[appointment.id]?.trim()) return true
-  loadError.value = 'Bitte geben Sie eine Information fuer den Kunden ein.'
+  loadError.value = 'Bitte geben Sie eine Information für den Kunden ein.'
   return false
 }
 

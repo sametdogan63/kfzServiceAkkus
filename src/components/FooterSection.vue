@@ -4,25 +4,26 @@
       <div class="space-y-5">
         <div class="inline-flex items-center gap-3 rounded-3xl border border-brand-500/20 bg-brand-600/10 px-4 py-2 text-sm font-semibold text-brand-100">
           <span class="h-2.5 w-2.5 rounded-full bg-brand-500"></span>
-          Premium Kfz-Service
+          KFZ Service Akkus
         </div>
-        <p class="max-w-sm leading-7 text-slate-400">Fachgerechte Wartung, Diagnostik und Reparatur für Ihren Pkw, E-Auto oder Nutzfahrzeug – zuverlässig, transparent und schnell.</p>
+        <p class="max-w-sm leading-7 text-slate-400">Meisterservice, Wartung, Reparatur, Diagnose und Tuning-Leistungen in Essen.</p>
       </div>
 
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">Leistungen</h3>
         <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-          <li>Inspektion &amp; Service</li>
-          <li>Batterie &amp; Diagnose</li>
-          <li>Reifen &amp; Bremsen</li>
-          <li>Klima &amp; Elektrik</li>
+          <li>Inspektion &amp; Wartung</li>
+          <li>Reparatur &amp; Diagnose</li>
+          <li>Reifen- &amp; Klimaservice</li>
+          <li>Tuning-Beratung</li>
         </ul>
       </div>
 
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">Kontakt</h3>
         <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-          <li>Tel: <a href="tel:+4915777533784" class="text-white transition hover:text-brand-400">01577 7533784</a></li>
+          <li>Tel: <a href="tel:+4917623141582" class="text-white transition hover:text-brand-400">+49 176 23141582</a></li>
+          <li><a href="mailto:service@kfz-akkus.de" class="text-white transition hover:text-brand-400">service@kfz-akkus.de</a></li>
           <li>Germaniastraße 160<br />45355 Essen</li>
           <li>Mo–Fr 08:00–18:00<br />Sa 08:00–13:00</li>
         </ul>

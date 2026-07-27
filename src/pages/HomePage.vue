@@ -7,7 +7,7 @@
         <div class="space-y-6 fade-in">
           <div class="section-title">
             <p class="section-subtitle">Über Unsere Werkstatt</p>
-            <h2 class="text-4xl font-bold lg:text-5xl">Meisterservice fuer Ihr Fahrzeug</h2>
+            <h2 class="text-4xl font-bold lg:text-5xl">Meisterservice für Ihr Fahrzeug</h2>
           </div>
           <p class="text-lg leading-relaxed text-slate-300">
             KFZ Service Akkus ist ein Meisterbetrieb in Essen. Wir bieten Inspektionen, Wartungen, Reparaturen, Elektronikdiagnosen und Tuning-Leistungen.
@@ -23,7 +23,7 @@
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p class="text-sm font-semibold text-white">Diagnose</p>
-              <p class="mt-1 text-sm text-slate-400">Elektronikdiagnosen fuer Ihr Fahrzeug</p>
+              <p class="mt-1 text-sm text-slate-400">Elektronikdiagnosen für Ihr Fahrzeug</p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p class="text-sm font-semibold text-white">Tuning</p>
@@ -71,49 +71,6 @@
     </section>
 
     <section class="section-container section-spacing">
-      <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-        <div class="space-y-8">
-          <div class="section-title">
-            <p class="section-subtitle">Kundenbewertungen</p>
-            <h2 class="text-4xl font-bold lg:text-5xl">Vertrauen durch Qualität</h2>
-            <p class="mt-4 text-lg text-slate-300">Hunderte zufriedene Kunden vertrauen uns mit ihren Fahrzeugen.</p>
-          </div>
-          <div class="space-y-6">
-            <ReviewCard
-              name="Anna K."
-              role="Privatkunde"
-              rating="5"
-              quote="Top Service und sehr freundliches Team. Meine Batterie wurde schnell geprüft und das Fahrzeug war am selben Tag wieder einsatzbereit." />
-            <ReviewCard
-              name="Flottenmanager"
-              role="Autohaus Schmidt"
-              rating="4.8"
-              quote="Verlässliche Werkstattarbeit, professionelle Diagnose und transparente Preise. Sehr empfehlenswert für unsere Fahrzeugflotte." />
-          </div>
-          <RouterLink to="/bewertungen" class="btn-secondary inline-flex">
-            <span>Alle Bewertungen ansehen</span>
-            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </RouterLink>
-        </div>
-
-        <div class="card-base card-hover space-y-8 p-8 lg:p-10">
-          <div>
-            <p class="section-subtitle mb-3">Partnerschaften</p>
-            <p class="text-3xl font-bold text-white">Werkstatt-Partner internationaler Marken</p>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">Michelin</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">Bosch</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">ZF</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">Mahle</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">Castrol</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 text-center font-semibold text-white transition hover:border-brand-500/30">Liqui Moly</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-container section-spacing">
       <div class="relative overflow-hidden rounded-[36px] border border-brand-500/30 bg-gradient-to-br from-brand-600/15 to-brand-500/10 p-12 lg:p-16">
         <div class="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,255,255,0.05)_0%,_transparent_50%)]"></div>
         <div class="relative space-y-8 text-center">
@@ -135,5 +92,4 @@
 import { RouterLink } from 'vue-router'
 import HeroSection from '../components/HeroSection.vue'
 import ServiceGrid from '../components/ServiceGrid.vue'
-import ReviewCard from '../components/ReviewCard.vue'
 </script>

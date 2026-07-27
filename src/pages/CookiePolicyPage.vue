@@ -15,7 +15,7 @@
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Ihre Auswahl aendern</h2>
+          <h2 class="text-xl font-semibold text-white">Ihre Auswahl ändern</h2>
           <p>Sie koennen Ihre gespeicherte Cookie-Entscheidung jederzeit zuruecksetzen. Danach wird der Hinweis erneut angezeigt.</p>
           <button type="button" class="btn-secondary" @click="resetCookieChoice">Cookie-Auswahl zuruecksetzen</button>
           <p v-if="message" class="text-sm text-emerald-300">{{ message }}</p>
@@ -23,7 +23,7 @@
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Speicherdauer</h2>
-          <p>Die Auswahl bleibt in Ihrem Browser gespeichert, bis Sie sie zuruecksetzen oder die lokalen Browserdaten loeschen.</p>
+          <p>Die Auswahl bleibt in Ihrem Browser gespeichert, bis Sie sie zurücksetzen oder die lokalen Browserdaten löschen.</p>
         </section>
       </div>
     </div>

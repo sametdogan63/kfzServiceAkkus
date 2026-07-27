@@ -12,7 +12,6 @@
     </main>
 
     <FooterSection />
-    <FloatingWhatsAppButton />
     <ScrollToTopButton />
     <CookieBanner />
   </div>
@@ -21,7 +20,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import FooterSection from './components/FooterSection.vue'
-import FloatingWhatsAppButton from './components/FloatingWhatsAppButton.vue'
 import ScrollToTopButton from './components/ScrollToTopButton.vue'
 import CookieBanner from './components/CookieBanner.vue'
 </script>

@@ -5,7 +5,7 @@
       <div class="max-w-4xl">
         <p class="section-subtitle mb-4">Kontaktmöglichkeiten</p>
         <h1 class="text-5xl lg:text-6xl font-bold mb-6">Wir sind gerne für Sie da</h1>
-        <p class="text-xl text-slate-300 leading-relaxed">Erreichen Sie uns telefonisch, per E-Mail oder nutzen Sie unser Kontaktformular. Gerne beantworten wir Ihre Fragen und kümmern uns um Ihr Anliegen.</p>
+        <p class="text-xl text-slate-300 leading-relaxed">Erreichen Sie uns telefonisch oder per E-Mail. Für Terminwünsche nutzen Sie direkt unsere Online-Termin-Anfrage.</p>
       </div>
     </section>
 

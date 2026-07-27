@@ -37,19 +37,5 @@ export const appointmentPlannerConfig = {
       ]
     }
   },
-  serviceDurationsMinutes: {
-    Inspektion: 120,
-    'Ölwechsel': 60,
-    Reifenservice: 60,
-    Bremsenservice: 120,
-    Klimaservice: 90,
-    'TÜV / AU': 90,
-    Diagnose: 90,
-    Batterie: 45,
-    Fahrwerk: 150,
-    Auspuff: 90,
-    Kupplung: 240,
-    Zahnriemen: 240,
-    Unfallreparatur: 180
-  }
+  serviceDurationsMinutes: {}
 }

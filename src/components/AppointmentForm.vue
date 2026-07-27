@@ -150,7 +150,7 @@ const submitForm = async () => {
   }
 
   requestId.value = result.appointment?.id || ''
-  successMessage.value = 'Ihre Anfrage wurde gesendet. Der gewaehlte Zeitraum ist bis zu unserer Rueckmeldung fuer Sie reserviert.'
+  successMessage.value = 'Ihre Anfrage wurde gesendet. Der gewählte Zeitraum ist bis zu unserer Rückmeldung für Sie reserviert.'
 
   Object.keys(form).forEach((key) => {
     if (typeof form[key] === 'boolean') {

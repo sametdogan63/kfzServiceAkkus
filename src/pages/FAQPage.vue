@@ -39,36 +39,32 @@ import FAQAccordion from '../components/FAQAccordion.vue'
 
 const faqItems = [
   {
-    question: 'Wie schnell kann ich einen Termin bekommen?',
-    answer: 'Wir bieten in der Regel Termine innerhalb weniger Tage an. Bei dringenden Fällen helfen wir nach Verfügbarkeit schneller weiter. Nutzen Sie unsere Online-Terminbuchung oder rufen Sie uns direkt an.'
+    question: 'Wie funktioniert die Termin-Anfrage?',
+    answer: 'Wählen Sie online eine Leistung, einen Tag und eine Uhrzeit aus. Mit dem Absenden wird der Zeitraum reserviert. Der Betrieb prüft Ihre Anfrage und informiert Sie anschließend per E-Mail über die Bestätigung, eine Verschiebung oder eine Ablehnung.'
   },
   {
-    question: 'Welche Leistungen bieten Sie für den Reifenwechsel an?',
-    answer: 'Neben dem Reifenwechsel führen wir Reifenmontage, Auswuchten und Einlagerung durch. Ihr Fahrzeug wird auf Wunsch komplett geprüft. Wir arbeiten mit hochwertigen Reifen namhafter Hersteller.'
+    question: 'Welche Werkstattleistungen bieten Sie an?',
+    answer: 'Zum Angebot gehören Inspektionen, Wartungen, Reparaturen, Fahrzeug- und Elektronikdiagnosen, Reifenwechsel, Klima- und Ölservice, Abgasuntersuchungen, Karosserieinstandsetzung, Fahrzeugpflege, Flottenbetreuung und Mobilitätsservices.'
   },
   {
-    question: 'Bieten Sie eine Mobilitätsgarantie oder Pannenservice an?',
-    answer: 'Ja, wir unterstützen Sie bei Mobilitätslösungen und können bei Bedarf auch einen Leihwagen oder Pannenservice vermitteln. Sprechen Sie uns auf diese Services an.'
+    question: 'Bieten Sie auch Tuning an?',
+    answer: 'Ja. Zum Tuning-Angebot gehören Chiptuning, Softwareoptimierungen und Motor-Tuning-Module. Vor jeder Leistung erfolgt eine individuelle Prüfung des Fahrzeugs und des rechtlich zulässigen Einsatzbereichs.'
   },
   {
-    question: 'Wie läuft der Batterie-Service ab?',
-    answer: 'Wir prüfen Batterie, Lichtmaschine und Starter, entfernen Fehlerquellen und empfehlen bei Bedarf den passenden Austausch. Neue Batterien werden professionell installed.'
+    question: 'Ist meine Anfrage sofort verbindlich?',
+    answer: 'Der gewählte Zeitraum wird nach dem Absenden reserviert. Verbindlich wird der Termin erst, wenn der Betrieb ihn bestätigt. Sie erhalten dazu eine Rückmeldung per E-Mail.'
   },
   {
-    question: 'Wie wird mein Fahrzeug nach der Reparatur geprüft?',
-    answer: 'Nach jeder Reparatur führen wir eine umfassende Qualitätskontrolle durch, damit Ihr Fahrzeug sicher und einsatzbereit zurückkommt. Alle arbeiten sind garantiert.'
+    question: 'Was passiert, wenn ein Termin nicht bestätigt werden kann?',
+    answer: 'Der Betrieb kann die Anfrage ablehnen oder einen anderen Termin vorschlagen. In beiden Fällen erhalten Sie eine Nachricht per E-Mail. Bei einer Ablehnung wird der reservierte Zeitraum wieder freigegeben.'
   },
   {
-    question: 'Wie lange dauert eine typische Inspektion?',
-    answer: 'Eine Standard-Inspektion dauert ca. 1-2 Stunden. Größere Reparaturen können länger dauern. Wir informieren Sie immer vorher über den zeitlichen Rahmen.'
+    question: 'Kann ein bestätigter Termin verschoben oder storniert werden?',
+    answer: 'Ja. Falls eine Änderung erforderlich ist, informiert der Betrieb Sie per E-Mail über einen neuen Termin oder eine Stornierung. Wenn ein vorgeschlagener Termin nicht passt, können Sie auf die E-Mail antworten.'
   },
   {
-    question: 'Akzeptieren Sie auch online Terminbuchung?',
-    answer: 'Ja, Sie können Termine jederzeit über unsere Website buchen. Sie erhalten sofort eine Bestätigung, und wir melden uns innerhalb eines Werktages telefonisch bei Ihnen.'
-  },
-  {
-    question: 'Welche Zahlungsarten akzeptieren Sie?',
-    answer: 'Wir akzeptieren Bargeld, Überweisung, EC-Karte und Kreditkarte. Sprechen Sie uns am besten vor der Reparatur an, wenn Sie eine spezielle Zahlungsart benötigen.'
+    question: 'Wie kann ich Kontakt aufnehmen?',
+    answer: 'Sie erreichen KFZ Service Akkus telefonisch unter +49 176 23141582 oder per E-Mail an service@kfz-akkus.de. Für Terminwünsche steht die Online-Termin-Anfrage zur Verfügung.'
   }
 ]
 </script>

@@ -106,7 +106,7 @@ function mapAppointment(record) {
 
 function createError(error, fallback) {
   if (error?.code === '23P01') {
-    return new Error('Dieser Zeitraum wurde inzwischen reserviert. Bitte waehlen Sie einen anderen Slot.')
+    return new Error('Dieser Zeitraum wurde inzwischen reserviert. Bitte wählen Sie einen anderen Slot.')
   }
 
   return new Error(error?.message || fallback)

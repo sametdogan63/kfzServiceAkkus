@@ -4,7 +4,7 @@
       <div class="max-w-4xl">
         <p class="section-subtitle mb-4">Unser Portfolio</p>
         <h1 class="text-5xl lg:text-6xl font-bold mb-6">Meisterservice und Tuning</h1>
-        <p class="text-xl text-slate-300 leading-relaxed">KFZ Service Akkus in Essen bietet Werkstattservice und Tuning-Leistungen fuer Fahrzeuge verschiedener Marken. Wir verbinden Wartung, Reparatur und Diagnose mit sorgfältiger Arbeit im Meisterbetrieb.</p>
+        <p class="text-xl text-slate-300 leading-relaxed">KFZ Service Akkus in Essen bietet Werkstattservice und Tuning-Leistungen für Fahrzeuge verschiedener Marken. Wir verbinden Wartung, Reparatur und Diagnose mit sorgfältiger Arbeit im Meisterbetrieb.</p>
       </div>
     </section>
 
@@ -34,10 +34,10 @@
         </div>
         <div class="border border-white/10 bg-slate-900/70 p-7 lg:p-8">
           <p class="text-xl font-bold text-white">Fahrzeugabstimmung</p>
-          <p class="mt-3 leading-relaxed text-slate-300">Pruefung moeglicher Einstellungen fuer Drehmoment, Ladedruck und Fahrfunktionen.</p>
+          <p class="mt-3 leading-relaxed text-slate-300">Prüfung möglicher Einstellungen für Drehmoment, Ladedruck und Fahrfunktionen.</p>
         </div>
       </div>
-      <p class="mt-6 border-l-2 border-amber-400 bg-amber-400/10 p-4 text-sm leading-6 text-amber-100">Tuning-Leistungen erfolgen nur nach individueller Pruefung und im rechtlich zulaessigen Rahmen. Emissions- oder sicherheitsrelevante Systeme werden nicht fuer den oeffentlichen Straßenverkehr deaktiviert oder umgangen.</p>
+      <p class="mt-6 border-l-2 border-amber-400 bg-amber-400/10 p-4 text-sm leading-6 text-amber-100">Tuning-Leistungen erfolgen nur nach individueller Prüfung und im rechtlich zulässigen Rahmen. Emissions- oder sicherheitsrelevante Systeme werden nicht für den öffentlichen Straßenverkehr deaktiviert oder umgangen.</p>
     </section>
 
     <section class="section-container section-spacing">

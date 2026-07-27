@@ -55,24 +55,24 @@ Deno.serve(async (request) => {
 
     const templates = {
       confirmed: {
-        status: 'bestaetigt',
+        status: 'bestätigt',
         subject: `Ihr Termin bei KfzServiceAkkus am ${appointment.appointment_date}`,
-        fallback: `Ihr Termin fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde bestaetigt.`
+        fallback: `Ihr Termin für ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde bestätigt.`
       },
       declined: {
         status: 'abgelehnt',
-        subject: 'Rueckmeldung zu Ihrer Terminanfrage bei KfzServiceAkkus',
-        fallback: `Leider kann Ihre Anfrage fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr nicht bestaetigt werden.`
+        subject: 'Rückmeldung zu Ihrer Terminanfrage bei KfzServiceAkkus',
+        fallback: `Leider kann Ihre Anfrage für ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr nicht bestätigt werden.`
       },
       cancelled: {
         status: 'storniert',
         subject: 'Ihr Termin bei KfzServiceAkkus wurde storniert',
-        fallback: `Ihr Termin fuer ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde storniert.`
+        fallback: `Ihr Termin für ${appointment.service} am ${appointment.appointment_date} um ${appointment.slot} Uhr wurde storniert.`
       },
       rescheduled: {
         status: 'verschoben',
         subject: `Ihr Termin bei KfzServiceAkkus wurde verschoben`,
-        fallback: `Ihr Termin fuer ${appointment.service} findet neu am ${appointment.appointment_date} um ${appointment.slot} Uhr statt.`
+        fallback: `Ihr Termin für ${appointment.service} findet neu am ${appointment.appointment_date} um ${appointment.slot} Uhr statt.`
       }
     }
     const template = templates[notificationType] || templates.confirmed
@@ -87,7 +87,7 @@ Deno.serve(async (request) => {
         from: senderAddress,
         to: [appointment.email],
         subject: template.subject,
-        text: `Hallo ${appointment.name},\n\n${message || template.fallback}\n\nStatus: ${template.status}\n\nWenn der neue Termin nicht passt oder Sie ihn vollstaendig absagen moechten, antworten Sie bitte auf diese E-Mail.\n\nKfzServiceAkkus\nGermaniastraße 160, 45355 Essen\nTelefon: 01577 7533784`
+        text: `Hallo ${appointment.name},\n\n${message || template.fallback}\n\nStatus: ${template.status}\n\nWenn der neue Termin nicht passt oder Sie ihn vollständig absagen möchten, antworten Sie bitte auf diese E-Mail.\n\nKfzServiceAkkus\nGermaniastraße 160, 45355 Essen\nTelefon: +49 176 23141582`
       })
     })
 

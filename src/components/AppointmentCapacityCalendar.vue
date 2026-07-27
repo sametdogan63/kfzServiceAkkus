@@ -6,7 +6,7 @@
         Gruen: komplett frei, Gelb: Platz verfuegbar, Rot: ausgebucht.
       </p>
       <p class="mt-2 text-xs text-slate-400">
-        Hinweis: Offene Anfragen und bestaetigte Termine reservieren den jeweiligen Zeitraum.
+        Hinweis: Offene Anfragen und bestätigte Termine reservieren den jeweiligen Zeitraum.
       </p>
       <p v-if="!props.selectedService" class="mt-2 text-xs text-amber-300">
         Bitte zuerst eine Leistung waehlen, damit passende Slots angezeigt werden.
@@ -52,7 +52,7 @@
 
     <div v-if="selectedDay" class="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
       <p class="text-sm font-semibold text-white">
-        Verfuegbare Slots fuer {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
+        Verfügbare Slots für {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
       </p>
       <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
         <button
@@ -68,7 +68,7 @@
         </button>
       </div>
       <p v-if="!hasAvailableSlot" class="mt-4 text-sm text-rose-300">
-        Fuer diesen Tag ist aktuell kein Slot verfuegbar.
+        Für diesen Tag ist aktuell kein Slot verfügbar.
       </p>
     </div>
   </div>

@@ -5,15 +5,15 @@ Die Website wird bei Vercel ausgeliefert. Supabase speichert Termine zentral, sc
 ## 1. Supabase-Projekt anlegen
 
 1. Ein neues Projekt unter https://supabase.com anlegen.
-2. Unter **SQL Editor** eine neue Abfrage oeffnen.
-3. Den gesamten Inhalt von `supabase/schema.sql` ausfuehren.
+2. Unter **SQL Editor** eine neue Abfrage öffnen.
+3. Den gesamten Inhalt von `supabase/schema.sql` ausführen.
 4. Unter **Project Settings > API** die Project URL und den `anon public` Key kopieren.
 
 Der `service_role` Key darf niemals in Vercel oder im Frontend hinterlegt werden.
 
 ## 2. Betriebszugang einrichten
 
-1. Unter **Authentication > Users** den Benutzer fuer den Betrieb anlegen, zum Beispiel mit einer separaten Betriebs-E-Mail-Adresse.
+1. Unter **Authentication > Users** den Benutzer für den Betrieb anlegen, zum Beispiel mit einer separaten Betriebs-E-Mail-Adresse.
 2. Die User UUID kopieren.
 3. Im SQL Editor ausfuehren:
 
@@ -50,7 +50,7 @@ Ohne diese Einrichtung werden Termine trotzdem zentral gespeichert. Bei einer En
 2. Framework Preset: **Vite**.
 3. Build Command: `npm run build`.
 4. Output Directory: `dist`.
-5. Unter **Settings > Environment Variables** fuer Production und Preview hinterlegen:
+5. Unter **Settings > Environment Variables** für Production und Preview hinterlegen:
 
 ```text
 VITE_SUPABASE_URL=https://DEIN-PROJEKT.supabase.co
@@ -59,14 +59,14 @@ VITE_SUPABASE_ANON_KEY=DEIN_ANON_PUBLIC_KEY
 
 6. Neu deployen.
 
-Die Werte mit `VITE_` werden in den Browser-Build eingebettet. Das ist fuer Project URL und `anon public` Key vorgesehen. Keine privaten Keys dort eintragen.
+Die Werte mit `VITE_` werden in den Browser-Build eingebettet. Das ist für Project URL und `anon public` Key vorgesehen. Keine privaten Keys dort eintragen.
 
 ## 5. Finale Checks vor dem Livegang
 
 - Testanfrage auf der Live-Domain absenden.
 - Im Dashboard mit dem Betriebszugang anmelden.
-- Anfrage bestaetigen und pruefen, ob sie im Kalender blockiert wird.
-- E-Mail-Bestaetigung und Ablehnung an eine Testadresse pruefen.
+- Anfrage bestätigen und prüfen, ob sie im Kalender blockiert wird.
+- E-Mail-Bestätigung und Ablehnung an eine Testadresse prüfen.
 - Unter **Authentication > URL Configuration** die Vercel-Domain als Site URL und Redirect URL hinterlegen.
 - Rechtliche Texte mit der echten E-Mail-Adresse, Steuer-/Registerdaten und Hosting-Angaben vervollstaendigen.
 
