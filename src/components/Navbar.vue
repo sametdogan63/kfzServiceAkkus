@@ -2,14 +2,8 @@
   <nav class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
     <div class="section-container">
       <div class="flex h-16 items-center justify-between lg:h-20">
-        <RouterLink to="/" class="flex shrink-0 items-center gap-3 text-white transition hover:opacity-80">
-          <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-600 text-lg font-bold text-white shadow-card">
-            A
-          </div>
-          <div class="hidden sm:block">
-            <p class="text-[10px] uppercase tracking-[0.35em] text-slate-400">KFZ Service</p>
-            <p class="font-semibold text-white">Akkus</p>
-          </div>
+        <RouterLink to="/" class="flex shrink-0 items-center transition hover:opacity-80">
+          <img :src="logo" alt="KFZ Service Akkus Meisterbetrieb" class="h-12 w-auto object-contain sm:h-14" />
         </RouterLink>
 
         <div class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
@@ -64,6 +58,7 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { CalendarDays, Menu, Phone, X } from 'lucide-vue-next'
+import logo from '../assets/kfz-service-akkus-logo.png'
 
 const route = useRoute()
 const isOpen = ref(false)
