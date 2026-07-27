@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="submitForm" class="space-y-6 rounded-[32px] border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-8 shadow-panel backdrop-blur-xl">
-    <div class="rounded-3xl border border-brand-500/20 bg-brand-500/10 p-4">
-      <p class="text-sm font-semibold uppercase tracking-[0.28em] text-brand-200">Termin anfragen</p>
+  <form @submit.prevent="submitForm" class="space-y-6 rounded-[24px] border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent p-5 shadow-panel backdrop-blur-xl sm:rounded-[32px] sm:p-8">
+    <div class="rounded-2xl border border-brand-500/20 bg-brand-500/10 p-4 sm:rounded-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-200 sm:text-sm sm:tracking-[0.28em]">Termin anfragen</p>
       <p class="mt-1 text-sm text-slate-300">Bitte teilen Sie uns Ihr Anliegen mit – wir melden uns innerhalb eines Werktages zurück.</p>
     </div>
 
@@ -63,7 +63,7 @@
     </div>
 
     <div class="space-y-3">
-      <p class="text-sm font-medium text-slate-200">Wunschtermin waehlen</p>
+      <p class="text-sm font-medium text-slate-200">Wunschtermin wählen</p>
       <AppointmentCapacityCalendar
         ref="calendarRef"
         v-model:selected-date="form.date"
@@ -74,7 +74,7 @@
         {{ slotError }}
       </p>
       <p v-if="form.date && form.slot" class="text-sm text-slate-300">
-        Ausgewaehlt: {{ formatSelectedDate(form.date) }} um {{ form.slot }} Uhr
+        Ausgewählt: {{ formatSelectedDate(form.date) }} um {{ form.slot }} Uhr
       </p>
     </div>
 
@@ -89,7 +89,7 @@
     </label>
 
     <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-      <button type="submit" class="btn-primary">Anfrage absenden</button>
+      <button type="submit" class="btn-primary w-full sm:w-auto">Anfrage absenden</button>
       <p class="text-sm text-slate-400">Wir melden uns innerhalb eines Werktages zurück.</p>
     </div>
 
@@ -137,7 +137,7 @@ const submitForm = async () => {
   slotError.value = ''
 
   if (!form.date || !form.slot) {
-    slotError.value = 'Bitte waehlen Sie zuerst einen verfuegbaren Tag und Zeit-Slot aus.'
+    slotError.value = 'Bitte wählen Sie zuerst einen verfügbaren Tag und Zeit-Slot aus.'
     return
   }
 

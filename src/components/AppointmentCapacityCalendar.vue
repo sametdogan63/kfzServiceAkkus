@@ -1,15 +1,15 @@
 <template>
   <div class="space-y-6">
-    <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-      <p class="text-sm font-semibold uppercase tracking-[0.28em] text-brand-200">Kalender Auslastung</p>
+    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:rounded-3xl sm:p-5">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-200 sm:text-sm sm:tracking-[0.28em]">Kalender Auslastung</p>
       <p class="mt-2 text-sm text-slate-300">
-        Gruen: komplett frei, Gelb: Platz verfuegbar, Rot: ausgebucht.
+        Grün: komplett frei, Gelb: Platz verfügbar, Rot: ausgebucht.
       </p>
       <p class="mt-2 text-xs text-slate-400">
         Hinweis: Offene Anfragen und bestätigte Termine reservieren den jeweiligen Zeitraum.
       </p>
       <p v-if="!props.selectedService" class="mt-2 text-xs text-amber-300">
-        Bitte zuerst eine Leistung waehlen, damit passende Slots angezeigt werden.
+        Bitte zuerst eine Leistung wählen, damit passende Slots angezeigt werden.
       </p>
       <div class="mt-4 flex flex-wrap gap-3 text-xs text-slate-300">
         <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-3 py-1">
@@ -42,7 +42,7 @@
         <p class="mt-2 text-xs" :class="dayStatusTextClass(day.status)">
           {{ statusLabel(day.status) }}
         </p>
-        <p class="mt-1 text-xs text-slate-400">{{ day.remaining }} freie Zeitbloecke</p>
+        <p class="mt-1 text-xs text-slate-400">{{ day.remaining }} freie Zeitblöcke</p>
       </button>
     </div>
 
@@ -50,7 +50,7 @@
       {{ loadError }}
     </p>
 
-    <div v-if="selectedDay" class="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+    <div v-if="selectedDay" class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:rounded-3xl sm:p-5">
       <p class="text-sm font-semibold text-white">
         Verfügbare Slots für {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
       </p>

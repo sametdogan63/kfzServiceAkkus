@@ -7,36 +7,36 @@
 
     <div class="relative">
       <div class="section-container section-spacing">
-        <div class="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div class="grid gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div class="space-y-8 fade-in">
             <div class="flex flex-wrap items-center gap-3">
-              <span class="inline-flex items-center gap-2 rounded-lg border border-brand-500/20 bg-brand-500/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-200">
+              <span class="inline-flex items-center gap-2 rounded-lg border border-brand-500/20 bg-brand-500/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-200 sm:text-[11px] sm:tracking-[0.2em]">
                 <span class="h-2 w-2 rounded-full bg-brand-500"></span>
                 Meisterbetrieb
               </span>
-              <span class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.2em] text-slate-300">
+              <span class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-300 sm:text-[11px] sm:tracking-[0.2em]">
                 Transparente Planung
               </span>
             </div>
 
             <div class="space-y-5">
-              <h1 class="max-w-3xl text-5xl text-white lg:text-6xl">
+              <h1 class="max-w-3xl text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
                 Die Werkstatt für
                 <br />
                 <span class="text-gradient">klare Entscheidungen.</span>
               </h1>
-              <p class="max-w-2xl text-lg leading-relaxed text-slate-300 lg:text-xl">
+              <p class="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
                 Wartung, Diagnose und Reparatur mit nachvollziehbarer Beratung, verbindlichen Abläufen und moderner Fahrzeugtechnik.
               </p>
             </div>
 
             <div class="flex flex-col gap-4 pt-2 sm:flex-row">
-              <RouterLink to="/termin" class="btn-primary">
+              <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">
                 <CalendarDays class="h-4 w-4" aria-hidden="true" />
                 <span>Termin vereinbaren</span>
                 <ArrowRight class="h-4 w-4" aria-hidden="true" />
               </RouterLink>
-              <a href="tel:+4917623141582" class="btn-secondary">
+              <a href="tel:+4917623141582" class="btn-secondary w-full sm:w-auto">
                 <Phone class="h-4 w-4" aria-hidden="true" />
                 <span>Jetzt anrufen</span>
               </a>
@@ -59,13 +59,13 @@
           </div>
 
           <div class="relative fade-in-up" style="animation-delay: 0.15s">
-            <div class="glass-card relative overflow-hidden p-8 lg:p-10">
+            <div class="glass-card relative overflow-hidden p-6 sm:p-8 lg:p-10">
               <div class="absolute inset-x-0 top-0 h-1 bg-brand-500"></div>
               <div class="relative space-y-6">
                 <div class="flex items-start justify-between gap-4">
                   <div>
                     <p class="section-subtitle mb-2">Unsere Leistungen</p>
-                    <h3 class="text-2xl font-semibold text-white">Wartung, Diagnose und Tuning</h3>
+                    <h3 class="text-xl font-semibold text-white sm:text-2xl">Wartung, Diagnose und Tuning</h3>
                   </div>
                   <div class="flex h-12 w-12 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/15 text-brand-300">
                     <BadgeCheck class="h-6 w-6" aria-hidden="true" />

@@ -3,8 +3,8 @@
     <div class="section-container">
       <div class="flex h-16 items-center justify-between lg:h-20">
         <RouterLink to="/" class="flex shrink-0 items-center transition hover:opacity-80">
-          <span class="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-brand-400/40 bg-white shadow-card sm:h-14 sm:w-14">
-            <img :src="logo" alt="KFZ Service Akkus Meisterbetrieb" class="h-full w-full scale-[1.75] object-cover object-center" />
+          <span class="inline-flex h-10 w-36 items-center justify-center overflow-hidden rounded-lg border border-brand-400/40 bg-white shadow-card sm:h-12 sm:w-44">
+            <img :src="logo" alt="KFZ Service Akkus Meisterbetrieb" class="h-full w-full object-cover object-center" />
           </span>
         </RouterLink>
 
@@ -38,14 +38,14 @@
       <transition name="slide-down">
         <div v-if="isOpen" id="mobile-navigation" class="relative z-50 border-t border-white/10 bg-neutral-950/95 backdrop-blur-xl lg:hidden">
           <div class="space-y-1 px-3 py-4">
-            <RouterLink v-for="item in navItems" :key="item.path" :to="item.path" @click="closeMenu" class="flex rounded-2xl px-4 py-3 text-sm transition" :class="isActive(item.path) ? 'bg-white/10 text-white' : 'text-slate-200 hover:bg-white/5'">
+            <RouterLink v-for="item in navItems" :key="item.path" :to="item.path" @click="closeMenu" class="flex w-full rounded-2xl px-4 py-3 text-sm transition" :class="isActive(item.path) ? 'bg-white/10 text-white' : 'text-slate-200 hover:bg-white/5'">
               {{ item.label }}
             </RouterLink>
-            <RouterLink to="/termin" @click="closeMenu" class="mt-2 flex items-center gap-2 rounded-lg bg-brand-500 px-4 py-3 text-sm font-bold text-slate-950">
+            <RouterLink to="/termin" @click="closeMenu" class="mt-2 flex w-full items-center gap-2 rounded-lg bg-brand-500 px-4 py-3 text-sm font-bold text-slate-950">
               <CalendarDays class="h-4 w-4" aria-hidden="true" />
               <span>Termin anfragen</span>
             </RouterLink>
-            <a href="tel:+4917623141582" class="flex items-center gap-2 rounded-lg px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5">
+            <a href="tel:+4917623141582" class="flex w-full items-center gap-2 rounded-lg px-4 py-3 text-sm text-slate-200 transition hover:bg-white/5">
               <Phone class="h-4 w-4" aria-hidden="true" />
               <span>Jetzt anrufen</span>
             </a>

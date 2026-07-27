@@ -4,8 +4,8 @@
     <section class="section-container section-spacing py-16 lg:py-24">
       <div class="max-w-4xl">
         <p class="section-subtitle mb-4">Online Buchung</p>
-        <h1 class="text-5xl lg:text-6xl font-bold mb-6">Termin vereinbaren</h1>
-        <p class="text-xl text-slate-300 leading-relaxed">Senden Sie Ihre Anfrage mit Leistung und Wunschtermin. Der Betrieb prüft die Verfügbarkeit und bestätigt Ihren Termin per E-Mail.</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Termin vereinbaren</h1>
+        <p class="text-base sm:text-xl text-slate-300 leading-relaxed">Senden Sie Ihre Anfrage mit Leistung und Wunschtermin. Der Betrieb prüft die Verfügbarkeit und bestätigt Ihren Termin per E-Mail.</p>
       </div>
     </section>
 
@@ -14,8 +14,8 @@
       <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <AppointmentForm />
         <aside class="space-y-8 lg:sticky lg:top-28 lg:self-start">
-          <div class="card-base p-8 lg:p-10">
-            <h3 class="text-2xl font-bold text-white mb-6">So funktioniert die Anfrage</h3>
+          <div class="card-base p-6 sm:p-8 lg:p-10">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-6">So funktioniert die Anfrage</h3>
             <div class="space-y-5">
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">1</div>
