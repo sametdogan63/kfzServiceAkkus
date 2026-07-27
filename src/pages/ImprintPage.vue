@@ -8,9 +8,9 @@
 
       <div class="card-base space-y-8 p-6 text-slate-300 lg:p-10">
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Angaben gemaess § 5 TMG</h2>
+          <h2 class="text-xl font-semibold text-white">Angaben gemaess § 5 DDG</h2>
           <p>
-            KfzServiceAkkus<br>
+            KFZ Service Akkus<br>
             Inhaber: Sefkan Akkus<br>
             Germaniastraße 160<br>
             45355 Essen<br>
@@ -21,9 +21,11 @@
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Kontakt</h2>
           <p>
-            Telefon: <a href="tel:+4915777533784" class="text-brand-300 hover:text-brand-200">01577 7533784</a>
+            Telefon: <a href="tel:+4917623141582" class="text-brand-300 hover:text-brand-200">+49 176 23141582</a>
           </p>
-          <p class="text-sm text-amber-200">Eine geschäftliche E-Mail-Adresse muss vor dem Livegang noch ergänzt werden.</p>
+          <p>
+            E-Mail: <a href="mailto:service@kfz-akkus.de" class="text-brand-300 hover:text-brand-200">service@kfz-akkus.de</a>
+          </p>
         </section>
 
         <section class="space-y-3">
@@ -32,22 +34,12 @@
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Registereintrag</h2>
-          <p>
-            Registergericht: [zustaendiges Registergericht]<br>
-            Registernummer: [Registernummer]
-          </p>
-          <p class="text-sm text-slate-400">Falls kein Registereintrag besteht, diesen Abschnitt entfernen.</p>
+          <h2 class="text-xl font-semibold text-white">Umsatzsteuer-Identifikationsnummer</h2>
+          <p>Umsatzsteuer-Identifikationsnummer gemaess § 27a Umsatzsteuergesetz: DE357662363</p>
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Umsatzsteuer</h2>
-          <p>Umsatzsteuer-Identifikationsnummer gemaess § 27a UStG: [USt-IdNr.]</p>
-          <p class="text-sm text-slate-400">Falls nicht vorhanden, diesen Abschnitt entfernen.</p>
-        </section>
-
-        <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Verantwortlich fuer den Inhalt</h2>
+          <h2 class="text-xl font-semibold text-white">Verantwortlich fuer den Inhalt gemaess § 18 Abs. 2 MStV</h2>
           <p>Sefkan Akkus, Germaniastraße 160, 45355 Essen</p>
         </section>
 
@@ -59,8 +51,8 @@
         </section>
       </div>
 
-      <p class="text-sm leading-6 text-amber-200">
-        Vor der Veroeffentlichung muessen die Angaben zu Registereintrag, Umsatzsteuer-Identifikationsnummer und die geschäftliche E-Mail-Adresse vervollständigt oder die nicht zutreffenden Abschnitte entfernt werden.
+      <p class="text-sm leading-6 text-slate-400">
+        Stand: 27. Juli 2026. Die fruehere Anschrift Am Stadthafen 19, 45356 Essen wird nicht verwendet.
       </p>
     </div>
   </section>

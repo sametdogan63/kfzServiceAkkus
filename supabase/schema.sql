@@ -40,6 +40,7 @@ create table public.appointments (
 );
 
 -- Zwei bestaetigte Werkstatttermine duerfen sich zeitlich nicht ueberlappen.
+-- Offene Anfragen werden zusaetzlich in submit_appointment atomar als Reservierung behandelt.
 alter table public.appointments
   add constraint confirmed_appointments_must_not_overlap
   exclude using gist (tsrange(starts_at, ends_at, '[)') with &&)
@@ -93,7 +94,7 @@ to authenticated
 using (public.is_admin())
 with check (public.is_admin());
 
--- Die oeffentliche Website bekommt nur bestätigte Blockzeiten, nie Kundendaten.
+-- Die oeffentliche Website bekommt nur reservierte Blockzeiten, nie Kundendaten.
 create or replace function public.get_calendar_bookings(p_start date, p_end date)
 returns table (appointment_date date, slot time, duration_minutes integer)
 language sql
@@ -103,7 +104,7 @@ stable
 as $$
   select a.appointment_date, a.slot, a.duration_minutes
   from public.appointments a
-  where a.status = 'confirmed'
+  where a.status in ('pending', 'confirmed')
     and a.appointment_date >= p_start
     and a.appointment_date <= p_end;
 $$;
@@ -143,6 +144,23 @@ begin
   end if;
 
   start_value := p_appointment_date + p_slot;
+
+  -- Serialisiert Anfragen eines Tages, damit zeitgleiche Buchungen nicht beide angenommen werden.
+  perform pg_advisory_xact_lock(hashtext(p_appointment_date::text));
+
+  if exists (
+    select 1
+    from public.appointments a
+    where a.status in ('pending', 'confirmed')
+      and tsrange(a.starts_at, a.ends_at, '[)') && tsrange(
+        start_value,
+        start_value + make_interval(mins => p_duration_minutes),
+        '[)'
+      )
+  ) then
+    raise exception 'Der gewaehlte Zeitraum wurde inzwischen reserviert. Bitte waehlen Sie einen anderen Slot.'
+      using errcode = '23P01';
+  end if;
 
   insert into public.appointments (
     name, phone, email, vehicle, model, year, license, service,

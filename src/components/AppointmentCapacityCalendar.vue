@@ -6,7 +6,7 @@
         Gruen: komplett frei, Gelb: Platz verfuegbar, Rot: ausgebucht.
       </p>
       <p class="mt-2 text-xs text-slate-400">
-        Hinweis: Die Auslastung basiert auf bestaetigten Werkstatt-Terminen.
+        Hinweis: Offene Anfragen und bestaetigte Termine reservieren den jeweiligen Zeitraum.
       </p>
       <p v-if="!props.selectedService" class="mt-2 text-xs text-amber-300">
         Bitte zuerst eine Leistung waehlen, damit passende Slots angezeigt werden.
@@ -42,7 +42,7 @@
         <p class="mt-2 text-xs" :class="dayStatusTextClass(day.status)">
           {{ statusLabel(day.status) }}
         </p>
-        <p class="mt-1 text-xs text-slate-400">{{ day.remaining }} von {{ day.capacity }} frei</p>
+        <p class="mt-1 text-xs text-slate-400">{{ day.remaining }} freie Zeitbloecke</p>
       </button>
     </div>
 
