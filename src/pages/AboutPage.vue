@@ -44,7 +44,8 @@
           <p class="text-lg text-slate-300 leading-relaxed">
             Sefkan Akkus ist Gründer und Kfz-Meister von KFZ Service Akkus. Seine Leidenschaft für Fahrzeuge prägt die tägliche Arbeit im Betrieb.
           </p>
-          <p class="text-lg text-slate-300 leading-relaxed">Nach seiner Ausbildung in Essen erwarb er den Meistertitel bei der Handwerkskammer Düsseldorf. Seit Anfang 2022 ist er als selbstständiger Kfz-Meister tätig.</p>
+          <p class="text-lg text-slate-300 leading-relaxed">Sefkan Akkus wurde am 10. Februar 1994 in Berlin geboren und zog 2009 nach Essen. Dort setzte er seine Ausbildung fort und erwarb anschließend seinen Meistertitel bei der Handwerkskammer Düsseldorf.</p>
+          <p class="text-lg text-slate-300 leading-relaxed">Seit Anfang 2022 ist er als selbstständiger Kfz-Meister tätig und führt den Betrieb mit Fokus auf Meisterservice, Tuning sowie saubere und gewissenhafte Arbeit.</p>
           <ul class="space-y-3">
             <li class="flex items-start gap-3">
               <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>

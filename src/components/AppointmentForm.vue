@@ -45,18 +45,19 @@
         <select v-model="form.service" required class="input-field appearance-none">
           <option value="">Bitte wählen</option>
           <option>Inspektion</option>
+          <option>Wartung und Reparatur</option>
+          <option>Fahrzeugdiagnose</option>
+          <option>Elektronikdiagnose</option>
           <option>Ölwechsel</option>
-          <option>Reifenservice</option>
-          <option>Bremsenservice</option>
+          <option>Reifenwechsel</option>
           <option>Klimaservice</option>
-          <option>TÜV / AU</option>
-          <option>Diagnose</option>
-          <option>Batterie</option>
-          <option>Fahrwerk</option>
-          <option>Auspuff</option>
-          <option>Kupplung</option>
-          <option>Zahnriemen</option>
-          <option>Unfallreparatur</option>
+          <option>Abgasuntersuchung</option>
+          <option>Karosserieinstandsetzung</option>
+          <option>Fahrzeugpflege</option>
+          <option>Fahrzeuge und Ersatzteile</option>
+          <option>Flottenbetreuung</option>
+          <option>Mobilitätsservices</option>
+          <option>Tuning-Beratung</option>
         </select>
       </label>
     </div>

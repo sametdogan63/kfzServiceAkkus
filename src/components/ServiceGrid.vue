@@ -27,16 +27,17 @@ import {
 
 const services = [
   { title: 'Inspektion', description: 'Sorgfältige Prüfung aller sicherheitsrelevanten Komponenten.', icon: ShieldCheck },
-  { title: 'Ölwechsel', description: 'Hochwertige Öle und fachgerechter Austausch für maximale Motorleistung.', icon: Droplet },
-  { title: 'Reifenservice', description: 'Reifenwechsel, Auswuchten und Einlagerung mit Präzision.', icon: Circle },
-  { title: 'Bremsenservice', description: 'Bremsflüssigkeit, Beläge und Scheiben werden geprüft und gewartet.', icon: Activity },
-  { title: 'Klimaservice', description: 'Effiziente Klima-Inspektion und Auffrischung für saubere Luft.', icon: ThermometerSnowflake },
-  { title: 'TÜV / AU', description: 'Vorbereitung und Prüfung für reibungslose Abnahmetermine.', icon: Clock },
-  { title: 'Diagnose', description: 'Moderne Fehlersuche für Elektronik, Motor und Fahrwerk.', icon: Wrench },
-  { title: 'Batterie', description: 'Leistungscheck, Erhaltung und Austausch von Starterbatterien.', icon: Battery },
-  { title: 'Fahrwerk', description: 'Fahrwerksprüfung und Einstellung für sicheren Fahrkomfort.', icon: Sparkles },
-  { title: 'Auspuff', description: 'Auspuff- und Abgasanlagen-Service für leisen, sauberen Betrieb.', icon: Sparkles },
-  { title: 'Kupplung', description: 'Kupplungscheck und Reparatur für ein sanftes Ansprechverhalten.', icon: Hammer },
-  { title: 'Zahnriemen', description: 'Zahnriemenprüfung und Wechsel gemäß Herstellervorgaben.', icon: Zap }
+  { title: 'Wartung und Reparatur', description: 'Wartungen und Reparaturen fuer verschiedene Fahrzeugmarken.', icon: Wrench },
+  { title: 'Fahrzeugdiagnose', description: 'Pruefung und Fehlersuche an Fahrzeugsystemen.', icon: Activity },
+  { title: 'Elektronikdiagnose', description: 'Diagnose elektronischer Fahrzeugkomponenten.', icon: Zap },
+  { title: 'Ölwechsel', description: 'Fachgerechter Oelwechsel fuer Ihr Fahrzeug.', icon: Droplet },
+  { title: 'Reifenwechsel', description: 'Reifenwechsel als Teil unseres Werkstattservices.', icon: Circle },
+  { title: 'Klimaservice', description: 'Service rund um die Klimaanlage Ihres Fahrzeugs.', icon: ThermometerSnowflake },
+  { title: 'Abgasuntersuchung', description: 'Abgasuntersuchungen fuer Ihr Fahrzeug.', icon: Clock },
+  { title: 'Karosserieinstandsetzung', description: 'Instandsetzung von Karosseriearbeiten.', icon: Hammer },
+  { title: 'Fahrzeugpflege', description: 'Pflegeleistungen fuer Ihr Fahrzeug.', icon: Sparkles },
+  { title: 'Fahrzeuge und Ersatzteile', description: 'Verkauf von Fahrzeugen und Ersatzteilen.', icon: Battery },
+  { title: 'Flottenbetreuung', description: 'Werkstattservice fuer Fahrzeugflotten.', icon: ShieldCheck },
+  { title: 'Mobilitätsservices', description: 'Unterstuetzung rund um Ihre Mobilitaet.', icon: Activity }
 ]
 </script>
