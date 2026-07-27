@@ -3,7 +3,9 @@
     <div class="section-container">
       <div class="flex h-16 items-center justify-between lg:h-20">
         <RouterLink to="/" class="flex shrink-0 items-center transition hover:opacity-80">
-          <img :src="logo" alt="KFZ Service Akkus Meisterbetrieb" class="h-12 w-auto object-contain sm:h-14" />
+          <span class="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-brand-400/40 bg-white shadow-card sm:h-14 sm:w-14">
+            <img :src="logo" alt="KFZ Service Akkus Meisterbetrieb" class="h-full w-full scale-[1.75] object-cover object-center" />
+          </span>
         </RouterLink>
 
         <div class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
