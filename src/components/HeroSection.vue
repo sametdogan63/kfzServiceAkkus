@@ -44,8 +44,8 @@
 
             <div class="grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
               <div>
-                <p class="text-2xl font-bold text-white">20+</p>
-                <p class="mt-1 text-sm text-slate-400">Jahre Erfahrung</p>
+                <p class="text-2xl font-bold text-white">Meister</p>
+                <p class="mt-1 text-sm text-slate-400">Kfz-Meisterbetrieb</p>
               </div>
               <div>
                 <p class="text-2xl font-bold text-white">Digital</p>
@@ -64,8 +64,8 @@
               <div class="relative space-y-6">
                 <div class="flex items-start justify-between gap-4">
                   <div>
-                    <p class="section-subtitle mb-2">Heute verfügbar</p>
-                    <h3 class="text-2xl font-semibold text-white">Schnell, präzise, transparent</h3>
+                    <p class="section-subtitle mb-2">Unsere Leistungen</p>
+                    <h3 class="text-2xl font-semibold text-white">Wartung, Diagnose und Tuning</h3>
                   </div>
                   <div class="flex h-12 w-12 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/15 text-brand-300">
                     <BadgeCheck class="h-6 w-6" aria-hidden="true" />
@@ -89,8 +89,8 @@
                       <Check class="h-5 w-5" aria-hidden="true" />
                     </div>
                     <div>
-                      <p class="font-semibold text-white">Garantierte Qualität</p>
-                      <p class="text-sm text-slate-300">Saubere Arbeit, klare Preise und zuverlässige Abwicklung.</p>
+                      <p class="font-semibold text-white">Sorgfältige Arbeit</p>
+                      <p class="text-sm text-slate-300">Meisterservice mit Fokus auf Qualität und Kundenzufriedenheit.</p>
                     </div>
                   </div>
                 </div>

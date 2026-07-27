@@ -7,27 +7,27 @@
         <div class="space-y-6 fade-in">
           <div class="section-title">
             <p class="section-subtitle">Über Unsere Werkstatt</p>
-            <h2 class="text-4xl font-bold lg:text-5xl">Premium-Service mit Herz</h2>
+            <h2 class="text-4xl font-bold lg:text-5xl">Meisterservice fuer Ihr Fahrzeug</h2>
           </div>
           <p class="text-lg leading-relaxed text-slate-300">
-            Wir kombinieren 20 Jahre Erfahrung mit modernster Werkstatttechnik. Ihr Fahrzeug ist bei uns in besten Händen – egal ob Inspektion, Reparatur oder Batterie-Check.
+            KFZ Service Akkus ist ein Meisterbetrieb in Essen. Wir bieten Inspektionen, Wartungen, Reparaturen, Elektronikdiagnosen und Tuning-Leistungen.
           </p>
           <p class="text-lg leading-relaxed text-slate-300">
-            Transparente Preise, schnelle Termine, fachgerechte Arbeit – das ist unser Versprechen an Sie.
+            Sefkan Akkus führt den Betrieb seit Anfang 2022 als selbstständiger Kfz-Meister. Saubere und gewissenhafte Arbeiten stehen dabei im Fokus.
           </p>
 
           <div class="grid gap-4 sm:grid-cols-3">
             <div class="rounded-2xl border border-brand-500/20 bg-brand-500/10 p-4">
-              <p class="text-sm font-semibold text-white">Transparent</p>
-              <p class="mt-1 text-sm text-slate-400">Klare Preise und ehrliche Beratung</p>
+              <p class="text-sm font-semibold text-white">Meisterbetrieb</p>
+              <p class="mt-1 text-sm text-slate-400">Meistertitel der Handwerkskammer Düsseldorf</p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p class="text-sm font-semibold text-white">Schnell</p>
-              <p class="mt-1 text-sm text-slate-400">Effiziente Bearbeitung und kurze Wartezeiten</p>
+              <p class="text-sm font-semibold text-white">Diagnose</p>
+              <p class="mt-1 text-sm text-slate-400">Elektronikdiagnosen fuer Ihr Fahrzeug</p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p class="text-sm font-semibold text-white">Verlässlich</p>
-              <p class="mt-1 text-sm text-slate-400">Zuverlässig auch bei kurzfristigen Anliegen</p>
+              <p class="text-sm font-semibold text-white">Tuning</p>
+              <p class="mt-1 text-sm text-slate-400">Spezialisierte Tuning-Leistungen</p>
             </div>
           </div>
 
@@ -38,24 +38,24 @@
 
         <div class="grid grid-cols-2 gap-6 lg:gap-8 fade-in-up">
           <div class="card-hover p-8 lg:p-10">
-            <div class="mb-3 text-4xl font-bold text-brand-500">20+</div>
-            <p class="mb-2 font-semibold text-white">Jahre Erfahrung</p>
-            <p class="text-slate-400">Mit Leidenschaft und Kompetenz</p>
+            <div class="mb-3 text-4xl font-bold text-brand-500">Meister</div>
+            <p class="mb-2 font-semibold text-white">Kfz-Meisterbetrieb</p>
+            <p class="text-slate-400">Geführt von Sefkan Akkus</p>
           </div>
           <div class="card-hover p-8 lg:p-10">
-            <div class="mb-3 text-4xl font-bold text-brand-500">95%</div>
-            <p class="mb-2 font-semibold text-white">Kundenzufriedenheit</p>
-            <p class="text-slate-400">Ihre Zufriedenheit ist unsere Mission</p>
+            <div class="mb-3 text-4xl font-bold text-brand-500">2022</div>
+            <p class="mb-2 font-semibold text-white">Selbstständig</p>
+            <p class="text-slate-400">Als Kfz-Meister in Essen</p>
           </div>
           <div class="card-hover p-8 lg:p-10">
-            <div class="mb-3 text-4xl font-bold text-brand-500">24h</div>
-            <p class="mb-2 font-semibold text-white">Antwortzeit</p>
-            <p class="text-slate-400">Schnell und zuverlässig</p>
+            <div class="mb-3 text-4xl font-bold text-brand-500">Kfz</div>
+            <p class="mb-2 font-semibold text-white">Diagnose</p>
+            <p class="text-slate-400">Elektronikdiagnosen im Betrieb</p>
           </div>
           <div class="card-hover p-8 lg:p-10">
-            <div class="mb-3 text-4xl font-bold text-brand-500">100%</div>
-            <p class="mb-2 font-semibold text-white">Meisterqualität</p>
-            <p class="text-slate-400">Keine Kompromisse bei der Qualität</p>
+            <div class="mb-3 text-4xl font-bold text-brand-500">Tuning</div>
+            <p class="mb-2 font-semibold text-white">Spezialleistung</p>
+            <p class="text-slate-400">Ergänzend zum Werkstattservice</p>
           </div>
         </div>
       </div>
