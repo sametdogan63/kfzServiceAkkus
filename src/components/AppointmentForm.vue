@@ -19,15 +19,15 @@
         <input v-model="form.email" type="email" required class="input-field" placeholder="mail@domain.de" />
       </label>
       <label class="space-y-2 text-sm text-slate-200">
-        <span class="font-medium">Fahrzeug</span>
-        <input v-model="form.vehicle" type="text" required class="input-field" placeholder="z. B. VW Golf" />
+        <span class="font-medium">Marke</span>
+        <input v-model="form.vehicle" type="text" required class="input-field" placeholder="z. B. Volkswagen (VW)" />
       </label>
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2">
       <label class="space-y-2 text-sm text-slate-200">
         <span class="font-medium">Modell</span>
-        <input v-model="form.model" type="text" required class="input-field" placeholder="Baujahr / Motor" />
+        <input v-model="form.model" type="text" required class="input-field" placeholder="z. B. Golf GTI" />
       </label>
       <label class="space-y-2 text-sm text-slate-200">
         <span class="font-medium">Baujahr</span>
