@@ -1,6 +1,6 @@
 <template>
-  <div class="group relative flex h-full flex-col border border-white/10 bg-slate-900/70 p-7 transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-400/50 hover:bg-slate-900 lg:p-8">
-    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/10 text-brand-300 transition-colors duration-200 group-hover:bg-brand-500/20">
+  <div class="group relative flex h-full flex-col rounded-sm border border-white/15 bg-slate-900/85 p-7 shadow-[0_10px_40px_rgba(2,8,18,0.15)] transition-all duration-200 hover:border-slate-400/40 hover:bg-slate-900 lg:p-8">
+    <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg border border-brand-500/20 bg-brand-500/10 text-brand-300 transition-colors duration-200">
       <component :is="icon" class="h-8 w-8" />
     </div>
     <h3 class="mb-3 text-xl font-bold text-white lg:text-2xl">{{ title }}</h3>
@@ -19,6 +19,9 @@ import { ArrowRight } from 'lucide-vue-next'
 const props = defineProps({
   title: String,
   description: String,
-  icon: Object
+  icon: {
+    type: [Function, Object],
+    required: true
+  }
 })
 </script>

@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        sans: ['Sora', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       fontSize: {
         'h1': ['3.5rem', { lineHeight: '1.2', fontWeight: '700' }],
@@ -21,20 +21,20 @@ export default {
         'elevated': '0 16px 48px rgba(0, 0, 0, 0.16)',
         'premium': '0 20px 60px rgba(0, 0, 0, 0.2)',
         'panel': '0 20px 60px rgba(2, 6, 23, 0.28)',
-        'glow': '0 0 0 1px rgba(14, 165, 233, 0.14), 0 20px 80px rgba(14, 165, 233, 0.16)'
+        'glow': '0 0 0 1px rgba(13, 88, 167, 0.14), 0 20px 80px rgba(13, 88, 167, 0.2)'
       },
       colors: {
         brand: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c3d66'
+          50: '#eef4ff',
+          100: '#dce8ff',
+          200: '#bed2ff',
+          300: '#8ea7ff',
+          400: '#5b7dff',
+          500: '#3b5bff',
+          600: '#2f49d6',
+          700: '#263aa9',
+          800: '#21317f',
+          900: '#1b2558'
         },
         neutral: {
           950: '#0a0a0a',

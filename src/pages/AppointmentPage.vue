@@ -20,7 +20,7 @@
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">1</div>
                 <div>
-                  <p class="font-semibold text-white">Leistung und Slot auswaehlen</p>
+                  <p class="font-semibold text-white">Leistung und Slot auswählen</p>
                   <p class="text-sm text-slate-400 mt-1">Geben Sie Fahrzeugdaten und Ihr Anliegen an</p>
                 </div>
               </div>
@@ -34,7 +34,7 @@
               <div class="flex gap-4">
                 <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-400 font-semibold text-sm">3</div>
                 <div>
-                  <p class="font-semibold text-white">Betrieb prueft die Anfrage</p>
+                  <p class="font-semibold text-white">Betrieb prüft die Anfrage</p>
                   <p class="text-sm text-slate-400 mt-1">Wir bestätigen oder schlagen eine Alternative vor</p>
                 </div>
               </div>

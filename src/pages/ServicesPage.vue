@@ -41,12 +41,11 @@
     </section>
 
     <section class="section-container section-spacing">
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600/15 to-brand-500/10 border border-brand-500/30 p-7 sm:p-12 lg:p-16">
-        <div class="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,255,255,0.05)_0%,_transparent_50%)]"></div>
+      <div class="cta-panel">
         <div class="relative text-center space-y-8">
           <div class="space-y-4">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">Haben Sie Fragen zur Leistung?</h2>
-            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Wir beraten Sie gerne zu den einzelnen Services und erstellen ein individuelles Angebot für Ihr Fahrzeug.</p>
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Wir beraten Sie zu Umfang, Aufwand und Terminfenster für Ihr Fahrzeug.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <RouterLink to="/kontakt" class="btn-primary w-full sm:w-auto">Jetzt kontaktieren</RouterLink>

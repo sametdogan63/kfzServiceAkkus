@@ -76,12 +76,11 @@
     </section>
 
     <section class="section-container section-spacing">
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600/15 to-brand-500/10 border border-brand-500/30 p-7 sm:p-12 lg:p-16">
-        <div class="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,255,255,0.05)_0%,_transparent_50%)]"></div>
+      <div class="cta-panel">
         <div class="relative text-center space-y-8">
           <div class="space-y-4">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">Bereit, uns kennenzulernen?</h2>
-            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Besuchen Sie uns in der Werkstatt oder buchen Sie einen Termin für eine Beratung.</p>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">Lernen Sie unseren Betrieb kennen</h2>
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Besuchen Sie uns vor Ort oder senden Sie eine Terminanfrage mit Ihrem Anliegen.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">Termin vereinbaren</RouterLink>

@@ -85,7 +85,7 @@
 
     <label class="flex items-start gap-3 text-sm text-slate-300">
       <input v-model="form.agree" type="checkbox" required class="mt-1 h-4 w-4 rounded border-white/10 bg-slate-950 text-brand-500" />
-      <span>Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzvereinbarung zu.</span>
+      <span>Ich stimme der Verarbeitung meiner Daten gemäß den Datenschutzbestimmungen zu.</span>
     </label>
 
     <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">

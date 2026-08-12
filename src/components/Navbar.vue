@@ -1,5 +1,5 @@
 <template>
-  <nav class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-xl">
+  <nav class="sticky top-0 z-50 border-b border-white/15 bg-neutral-950/92 backdrop-blur-xl">
     <div class="section-container">
       <div class="flex h-16 items-center justify-between lg:h-20">
         <RouterLink to="/" class="flex shrink-0 items-center transition hover:opacity-80">
@@ -13,20 +13,20 @@
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="group relative px-4 py-2 text-sm font-medium transition"
+            class="group relative px-3 py-2 text-xs font-semibold uppercase tracking-[0.09em] transition"
             :class="isActive(item.path) ? 'text-white' : 'text-slate-300 hover:text-white'"
           >
             <span>{{ item.label }}</span>
-            <span class="absolute bottom-0 left-2 right-2 h-0.5 origin-left scale-x-0 rounded-full bg-brand-500 transition-transform duration-300 group-hover:scale-x-100" :class="isActive(item.path) ? 'scale-x-100' : ''"></span>
+            <span class="absolute bottom-0 left-2 right-2 h-px origin-left scale-x-0 bg-brand-500 transition-transform duration-300 group-hover:scale-x-100" :class="isActive(item.path) ? 'scale-x-100' : ''"></span>
           </RouterLink>
         </div>
 
         <div class="flex shrink-0 items-center gap-3">
-          <RouterLink to="/termin" class="hidden gap-2 btn-primary px-4 py-2.5 text-xs lg:flex">
+          <RouterLink to="/termin" class="hidden gap-2 btn-primary px-4 py-2 text-xs lg:flex">
             <CalendarDays class="h-4 w-4" aria-hidden="true" />
-            <span>Termin anfragen</span>
+            <span>Termin</span>
           </RouterLink>
-          <button @click="toggleMenu" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 bg-white/5 text-slate-200 transition hover:border-brand-400 hover:text-white lg:hidden" :aria-label="isOpen ? 'Menü schließen' : 'Menü öffnen'" :aria-expanded="isOpen" aria-controls="mobile-navigation">
+          <button @click="toggleMenu" class="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/20 bg-white/5 text-slate-200 transition hover:border-brand-400 hover:text-white lg:hidden" :aria-label="isOpen ? 'Menü schließen' : 'Menü öffnen'" :aria-expanded="isOpen" aria-controls="mobile-navigation">
             <X v-if="isOpen" class="h-5 w-5" aria-hidden="true" />
             <Menu v-else class="h-5 w-5" aria-hidden="true" />
           </button>

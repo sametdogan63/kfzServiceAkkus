@@ -20,9 +20,9 @@
 
     <!-- CTA Section -->
     <section class="section-container section-spacing">
-      <div class="rounded-3xl bg-gradient-to-r from-brand-600/15 to-brand-500/10 border border-brand-500/30 p-12 lg:p-16 text-center">
+      <div class="cta-panel text-center">
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Einen Termin anfragen</h2>
-        <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Wählen Sie online eine Leistung und einen passenden Terminwunsch aus.</p>
+        <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Wählen Sie online Ihre Leistung und senden Sie uns Ihren Wunschtermin.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <RouterLink to="/termin" class="btn-primary">Termin buchen</RouterLink>
           <RouterLink to="/kontakt" class="btn-secondary">Kontakt aufnehmen</RouterLink>

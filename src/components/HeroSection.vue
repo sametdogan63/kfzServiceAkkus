@@ -1,103 +1,78 @@
 <template>
   <section class="relative overflow-hidden bg-gradient-hero">
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/40 to-transparent"></div>
-      <div class="absolute inset-y-0 right-[14%] hidden w-px bg-white/[0.05] lg:block"></div>
-    </div>
-
-    <div class="relative">
-      <div class="section-container section-spacing">
-        <div class="grid gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div class="space-y-8 fade-in">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="inline-flex items-center gap-2 rounded-lg border border-brand-500/20 bg-brand-500/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-200 sm:text-[11px] sm:tracking-[0.2em]">
-                <span class="h-2 w-2 rounded-full bg-brand-500"></span>
-                Meisterbetrieb
-              </span>
-              <span class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-300 sm:text-[11px] sm:tracking-[0.2em]">
-                Transparente Planung
-              </span>
-            </div>
-
-            <div class="space-y-5">
-              <h1 class="max-w-3xl text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-                Die Werkstatt für
-                <br />
-                <span class="text-gradient">klare Entscheidungen.</span>
-              </h1>
-              <p class="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
-                Wartung, Diagnose und Reparatur mit nachvollziehbarer Beratung, verbindlichen Abläufen und moderner Fahrzeugtechnik.
-              </p>
-            </div>
-
-            <div class="flex flex-col gap-4 pt-2 sm:flex-row">
-              <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">
-                <CalendarDays class="h-4 w-4" aria-hidden="true" />
-                <span>Termin vereinbaren</span>
-                <ArrowRight class="h-4 w-4" aria-hidden="true" />
-              </RouterLink>
-              <a href="tel:+4917623141582" class="btn-secondary w-full sm:w-auto">
-                <Phone class="h-4 w-4" aria-hidden="true" />
-                <span>Jetzt anrufen</span>
-              </a>
-            </div>
-
-            <div class="grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
-              <div>
-                <p class="text-2xl font-bold text-white">Meister</p>
-                <p class="mt-1 text-sm text-slate-400">Kfz-Meisterbetrieb</p>
-              </div>
-              <div>
-                <p class="text-2xl font-bold text-white">Digital</p>
-                <p class="mt-1 text-sm text-slate-400">Termin-Anfrage</p>
-              </div>
-              <div>
-                <p class="text-2xl font-bold text-white">Klar</p>
-                <p class="mt-1 text-sm text-slate-400">Serviceablauf</p>
-              </div>
-            </div>
+    <div class="section-container section-spacing">
+      <div class="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+        <div class="space-y-7 fade-in">
+          <div class="inline-flex w-fit items-center gap-2 rounded-full border border-brand-400/30 bg-brand-500/10 px-3 py-2 text-sm font-semibold text-brand-100">
+            <BadgeCheck class="h-4 w-4" aria-hidden="true" />
+            <span>Meisterbetrieb in Essen</span>
           </div>
 
-          <div class="relative fade-in-up" style="animation-delay: 0.15s">
-            <div class="glass-card relative overflow-hidden p-6 sm:p-8 lg:p-10">
-              <div class="absolute inset-x-0 top-0 h-1 bg-brand-500"></div>
-              <div class="relative space-y-6">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <p class="section-subtitle mb-2">Unsere Leistungen</p>
-                    <h3 class="text-xl font-semibold text-white sm:text-2xl">Wartung, Diagnose und Tuning</h3>
-                  </div>
-                  <div class="flex h-12 w-12 items-center justify-center rounded-lg border border-brand-500/30 bg-brand-500/15 text-brand-300">
-                    <BadgeCheck class="h-6 w-6" aria-hidden="true" />
-                  </div>
-                </div>
+          <h1 class="max-w-3xl text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+            Werkstattservice mit
+            <span class="text-brand-300">klaren Abläufen</span>
+            und schneller Hilfe.
+          </h1>
 
-                <div class="grid gap-3 sm:grid-cols-2">
-                  <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
-                    <p class="text-sm font-semibold text-white">Batterie-Service</p>
-                    <p class="mt-1 text-sm text-slate-400">Schnell geprüft und sicher ersetzt</p>
-                  </div>
-                  <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
-                    <p class="text-sm font-semibold text-white">Diagnose</p>
-                    <p class="mt-1 text-sm text-slate-400">Moderne Fehlersuche inkl. Auswertung</p>
-                  </div>
-                </div>
+          <p class="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
+            Inspektion, Wartung, Diagnose und Reparatur – mit transparenter Einschätzung, verlässlicher Kommunikation und einem klaren nächsten Schritt.
+          </p>
 
-                <div class="border-l-2 border-brand-400 bg-brand-500/10 p-5">
-                  <div class="flex items-center gap-3">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-500/20 text-brand-300">
-                      <Check class="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p class="font-semibold text-white">Sorgfältige Arbeit</p>
-                      <p class="text-sm text-slate-300">Meisterservice mit Fokus auf Qualität und Kundenzufriedenheit.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="flex flex-col gap-3 pt-1 sm:flex-row">
+            <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">
+              <CalendarDays class="h-4 w-4" aria-hidden="true" />
+              <span>Termin anfragen</span>
+              <ArrowRight class="h-4 w-4" aria-hidden="true" />
+            </RouterLink>
+            <a href="tel:+4917623141582" class="btn-secondary w-full sm:w-auto">
+              <Phone class="h-4 w-4" aria-hidden="true" />
+              <span>Anrufen</span>
+            </a>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-sm border border-brand-500/35 bg-brand-500/10 p-4">
+              <p class="text-sm font-semibold text-white">Schnell erreichbar</p>
+              <p class="mt-1 text-sm text-slate-400">Rückmeldung meist innerhalb eines Werktags</p>
+            </div>
+            <div class="rounded-sm border border-white/15 bg-white/[0.03] p-4">
+              <p class="text-sm font-semibold text-white">Meisterbetrieb</p>
+              <p class="mt-1 text-sm text-slate-400">Handwerkskammer Düsseldorf</p>
+            </div>
+            <div class="rounded-sm border border-white/15 bg-white/[0.03] p-4">
+              <p class="text-sm font-semibold text-white">Vor Ort in Essen</p>
+              <p class="mt-1 text-sm text-slate-400">Klare Terminplanung und Beratung</p>
             </div>
           </div>
         </div>
+
+        <aside class="glass-card fade-in-up p-6 sm:p-8 lg:p-9" style="animation-delay: 0.1s">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl text-white sm:text-2xl">So läuft es bei uns</h2>
+            <div class="rounded-full border border-brand-400/20 bg-brand-500/10 p-2">
+              <BadgeCheck class="h-5 w-5 text-brand-300" aria-hidden="true" />
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+              <p class="text-sm font-semibold text-white">1. Anfrage und Termin</p>
+              <p class="mt-1 text-sm text-slate-400">Sie senden Ihren Wunschtermin und wir prüfen die Verfügbarkeit.</p>
+            </div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+              <p class="text-sm font-semibold text-white">2. Klare Einschätzung</p>
+              <p class="mt-1 text-sm text-slate-400">Sie erhalten eine verständliche Einschätzung von Aufwand und nächsten Schritten.</p>
+            </div>
+            <div class="rounded-lg border border-white/10 bg-white/[0.03] p-4">
+              <p class="text-sm font-semibold text-white">3. Verlässliche Ausführung</p>
+              <p class="mt-1 text-sm text-slate-400">Ihre Werkstattarbeit wird sauber, nachvollziehbar und termingerecht umgesetzt.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-lg border-l-2 border-brand-500 bg-brand-500/10 p-4 text-sm text-slate-200">
+            Öffnungszeiten: Mo–Fr 08:00–18:00 · Sa 08:00–13:00
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -105,5 +80,5 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ArrowRight, BadgeCheck, CalendarDays, Check, Phone } from 'lucide-vue-next'
+import { ArrowRight, BadgeCheck, CalendarDays, Phone } from 'lucide-vue-next'
 </script>
