@@ -68,7 +68,7 @@
               <p class="text-sm text-slate-400">Anfrage-ID: {{ appointment.id }}</p>
               <p class="text-lg font-semibold text-white mt-1">{{ appointment.name }} | {{ appointment.service }}</p>
               <p class="text-sm text-slate-300 mt-1">{{ appointment.date }} um {{ appointment.slot }} Uhr</p>
-              <p class="text-sm text-slate-400 mt-1">{{ appointment.email }} | {{ appointment.phone }}</p>
+              <p class="text-sm text-slate-400 mt-1">{{ appointment.email }} | {{ appointment.phone || 'Kein Telefon angegeben' }}</p>
             </div>
             <div class="text-right">
               <span class="inline-flex rounded-full border px-3 py-1 text-xs font-bold" :class="statusClass(appointment.status)">{{ statusLabel(appointment.status) }}</span>
@@ -85,7 +85,7 @@
             <div class="rounded-xl border border-white/10 bg-white/[0.03] p-3">
               <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Fahrzeug</p>
               <p class="mt-1 font-medium text-white">{{ appointment.vehicle }} {{ appointment.model }}</p>
-              <p class="mt-1 text-slate-300">Baujahr: {{ appointment.year }} | Kennzeichen: {{ appointment.license || '-' }}</p>
+              <p class="mt-1 text-slate-300">Baujahr: {{ appointment.year || '-' }} | Kennzeichen: {{ appointment.license || '-' }}</p>
             </div>
           </div>
 

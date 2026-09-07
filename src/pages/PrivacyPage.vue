@@ -6,7 +6,7 @@
         <h1 class="text-4xl lg:text-5xl font-bold">Datenschutzerklärung</h1>
       </div>
 
-      <div class="card-base space-y-8 p-6 text-slate-300 lg:p-10">
+      <div class="space-y-8 text-slate-300">
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">1. Verantwortliche Stelle</h2>
           <p>
@@ -14,14 +14,14 @@
             KFZ Service Akkus, Inhaber Sefkan Akkus<br>
             Germaniastraße 160, 45355 Essen<br>
             Telefon: +49 176 23141582<br>
-            E-Mail: <a href="mailto:service@kfz-akkus.de" class="text-brand-300 hover:text-brand-200">service@kfz-akkus.de</a>
+            E-Mail: <a href="mailto:service@kfz-akkus.de" class="text-brand-300 underline underline-offset-4 hover:text-brand-200">service@kfz-akkus.de</a>
           </p>
         </section>
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">2. Termin-Anfragen</h2>
           <p>
-            Wenn Sie eine Termin-Anfrage stellen, verarbeiten wir Ihren Namen, Ihre Telefonnummer, E-Mail-Adresse, Fahrzeug- und Kennzeichendaten, die gewünschte Leistung, den Terminwunsch sowie Ihre Nachricht. Diese Daten verwenden wir zur Bearbeitung der Anfrage, Terminplanung, Durchführung des Werkstattauftrags und Kommunikation über den Termin.
+            Wenn Sie eine Termin-Anfrage stellen, verarbeiten wir Ihren Namen, Ihre E-Mail-Adresse, die Fahrzeugmarke, die gewünschte Leistung und den Terminwunsch. Telefonnummer, Modell, Baujahr, Kennzeichen und Nachricht sind freiwillige Angaben. Diese Daten verwenden wir zur Bearbeitung der Anfrage, Terminplanung und Kommunikation über den Termin.
           </p>
           <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Maßnahmen und die Vertragsdurchführung. Soweit gesetzliche Pflichten bestehen, ist Art. 6 Abs. 1 lit. c DSGVO die Rechtsgrundlage. Unser berechtigtes Interesse an einer sicheren, nachvollziehbaren Terminverwaltung stützt sich auf Art. 6 Abs. 1 lit. f DSGVO.</p>
         </section>
@@ -63,9 +63,9 @@
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">7. Cookies und lokale Speicherung</h2>
           <p>
-            Diese Website speichert Ihre Entscheidung im Cookie-Hinweis im lokalen Speicher Ihres Browsers. Diese Speicherung ist technisch erforderlich, damit der Hinweis nicht bei jedem Seitenaufruf erneut erscheint. Rechtsgrundlage ist § 25 Abs. 2 TDDDG in Verbindung mit Art. 6 Abs. 1 lit. f DSGVO.
+            Für die Anmeldung in der internen Terminverwaltung speichert Supabase Sitzungsdaten im lokalen Speicher des Browsers. Diese Speicherung dient dem angeforderten, geschützten Betriebszugang. Rechtsgrundlage für die technisch erforderliche Speicherung ist § 25 Abs. 2 Nr. 2 TDDDG. Die Verarbeitung zur sicheren Zugriffskontrolle erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
           </p>
-          <p>Analyse- oder Marketingdienste sind derzeit nicht eingebunden.</p>
+          <p>Analyse- oder Marketingdienste sind derzeit nicht eingebunden. Schriftarten werden lokal mit der Website ausgeliefert; es findet dafür keine Verbindung zu Google Fonts statt. Der frühere Cookie-Auswahldialog wird nicht mehr verwendet.</p>
         </section>
 
         <section class="space-y-3">
@@ -73,13 +73,13 @@
           <p>
             Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten. Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Bitte wenden Sie sich dazu an die oben genannte E-Mail-Adresse.
           </p>
-          <p>Sie können sich bei der zuständigen Datenschutzaufsichtsbehörde beschweren: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2-4, 40213 Düsseldorf, <a href="https://www.ldi.nrw.de" class="text-brand-300 hover:text-brand-200" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>.</p>
+          <p>Sie können sich bei der zuständigen Datenschutzaufsichtsbehörde beschweren: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2-4, 40213 Düsseldorf, <a href="https://www.ldi.nrw.de" class="text-brand-300 underline underline-offset-4 hover:text-brand-200" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>.</p>
         </section>
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">9. Aktualität dieser Datenschutzerklärung</h2>
           <p>
-            Diese Datenschutzerklärung hat den Stand 27. Juli 2026. Wir passen sie an, wenn sich die eingesetzten Dienste, die Datenverarbeitung oder rechtliche Anforderungen ändern.
+            Diese Datenschutzerklärung hat den Stand 7. September 2026. Wir passen sie an, wenn sich die eingesetzten Dienste, die Datenverarbeitung oder rechtliche Anforderungen ändern.
           </p>
         </section>
       </div>

@@ -2,28 +2,31 @@
   <section class="section-container section-spacing py-16 lg:py-24">
     <div class="max-w-4xl space-y-10">
       <div>
-        <p class="section-subtitle mb-4">Cookie-Einstellungen</p>
-        <h1 class="text-4xl lg:text-5xl font-bold">Cookie-Richtlinie</h1>
+        <p class="section-subtitle mb-4">Datenschutz</p>
+        <h1 class="text-4xl lg:text-5xl font-bold">Cookies und lokale Speicherung</h1>
       </div>
 
-      <div class="card-base space-y-8 p-6 text-slate-300 lg:p-10">
+      <div class="space-y-8 text-slate-300">
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Welche Technologien verwenden wir?</h2>
           <p>
-            Aktuell speichert diese Website Ihre Auswahl im Cookie-Hinweis lokal in Ihrem Browser. Es werden derzeit keine Analyse-, Werbe- oder Social-Media-Tracking-Cookies eingebunden.
+            Diese Website bindet keine Analyse-, Werbe- oder Social-Media-Trackingdienste ein. Schriftarten werden von derselben Website geladen, nicht von Google Fonts. Deshalb gibt es keinen Auswahl-Dialog für Marketing- oder Analyse-Cookies.
           </p>
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-xl font-semibold text-white">Ihre Auswahl ändern</h2>
-          <p>Sie koennen Ihre gespeicherte Cookie-Entscheidung jederzeit zuruecksetzen. Danach wird der Hinweis erneut angezeigt.</p>
-          <button type="button" class="btn-secondary" @click="resetCookieChoice">Cookie-Auswahl zuruecksetzen</button>
-          <p v-if="message" class="text-sm text-emerald-300">{{ message }}</p>
+          <h2 class="text-xl font-semibold text-white">Anmeldung für den Betrieb</h2>
+          <p>Nach einer Anmeldung in der internen Terminverwaltung speichert Supabase die Sitzung im lokalen Browserspeicher. Diese Speicherung dient der Authentifizierung und wird nicht für Werbung verwendet. Für eine öffentliche Terminanfrage ist kein Kundenkonto erforderlich.</p>
         </section>
 
         <section class="space-y-3">
           <h2 class="text-xl font-semibold text-white">Speicherdauer</h2>
-          <p>Die Auswahl bleibt in Ihrem Browser gespeichert, bis Sie sie zurücksetzen oder die lokalen Browserdaten löschen.</p>
+          <p>Die Anmeldedaten im Browser werden bei der Abmeldung entfernt. Sie können sie auch über die Website-Daten Ihres Browsers löschen. Ein möglicherweise noch vorhandener Eintrag „kfz-cookies-accepted“ aus einer älteren Website-Version wird nicht mehr ausgewertet und kann ebenfalls gelöscht werden.</p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-xl font-semibold text-white">Weitere Informationen</h2>
+          <p>Informationen zu Hosting, Termindaten und Ihren Rechten finden Sie in unserer <RouterLink to="/datenschutz" class="text-brand-300 underline underline-offset-4">Datenschutzerklärung</RouterLink>.</p>
         </section>
       </div>
     </div>
@@ -31,12 +34,5 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const message = ref('')
-
-const resetCookieChoice = () => {
-  localStorage.removeItem('kfz-cookies-accepted')
-  message.value = 'Ihre Cookie-Auswahl wurde zurueckgesetzt.'
-}
+import { RouterLink } from 'vue-router'
 </script>

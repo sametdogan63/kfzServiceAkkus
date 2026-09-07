@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import { pageMetadata } from '../config/pageMetadata'
 
 const HomePage = () => import('../pages/HomePage.vue')
 const ServicesPage = () => import('../pages/ServicesPage.vue')
@@ -81,12 +82,16 @@ const routes = [
   }
 ]
 
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-  scrollBehavior() {
-    return { top: 0, behavior: 'smooth' }
-  }
-})
-
-export default router
+export function createAppRouter(history = createWebHistory(import.meta.env.BASE_URL)) {
+  return createRouter({
+    history,
+    routes: [
+      ...routes.map((route) => ({ ...route, meta: pageMetadata[route.path] })),
+      { path: '/:pathMatch(.*)*', component: () => import('../pages/NotFoundPage.vue'), meta: { title: 'Seite nicht gefunden', description: 'Diese Seite ist nicht verfügbar.', noindex: true } }
+    ],
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) return savedPosition
+      return to.hash === '#main-content' ? { el: '#main-content', top: 96 } : { top: 0, behavior: 'instant' }
+    }
+  })
+}

@@ -1,3 +1,11 @@
+@import '@fontsource/dm-sans/latin-400.css';
+@import '@fontsource/dm-sans/latin-500.css';
+@import '@fontsource/dm-sans/latin-600.css';
+@import '@fontsource/dm-sans/latin-700.css';
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-600.css';
+@import '@fontsource/space-grotesk/latin-700.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +33,7 @@
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     color: #f8fafc;
     letter-spacing: 0;
-    overflow-x: hidden;
+    overflow-wrap: break-word;
   }
 
   body::before {
@@ -99,7 +107,7 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-sm font-bold text-slate-950 transition-all duration-200;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-brand-500 px-5 py-3 text-sm font-bold text-slate-950 transition-all duration-200;
     box-shadow: 0 10px 24px rgba(14, 165, 233, 0.2);
   }
 
@@ -114,7 +122,7 @@
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-bold text-white transition-all duration-200;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-bold text-white transition-all duration-200;
   }
 
   .btn-secondary:hover {
@@ -159,7 +167,7 @@
   }
 
   .input-field {
-    @apply w-full rounded-lg border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition duration-200;
+    @apply w-full min-w-0 rounded-lg border border-white/20 bg-slate-950/70 px-4 py-3 text-base text-white placeholder-slate-400 transition duration-200;
   }
 
   .input-field:hover {
@@ -169,6 +177,15 @@
   .input-field:focus {
     border-color: rgba(14, 165, 233, 0.6);
     box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.16);
+  }
+
+  #main-content {
+    scroll-margin-top: 6rem;
+  }
+
+  .btn-primary svg,
+  .btn-secondary svg {
+    flex-shrink: 0;
   }
 }
 

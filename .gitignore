@@ -3,10 +3,12 @@ node_modules/
 
 # build output
 dist/
+.prerender/
 
 # local env files
 .env
 .env.*
+!.env.example
 
 # Supabase CLI local metadata
 supabase/.temp/
@@ -27,3 +29,5 @@ yarn-error.log*
 # misc
 .DS_Store
 coverage/
+test-results/
+playwright-report/

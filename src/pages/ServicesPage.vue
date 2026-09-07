@@ -50,7 +50,7 @@
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <RouterLink to="/kontakt" class="btn-primary w-full sm:w-auto">Jetzt kontaktieren</RouterLink>
-            <RouterLink to="/termin" class="btn-secondary w-full sm:w-auto">Termin buchen</RouterLink>
+            <RouterLink to="/termin" class="btn-secondary w-full sm:w-auto">Termin anfragen</RouterLink>
           </div>
         </div>
       </div>

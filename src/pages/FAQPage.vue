@@ -25,7 +25,7 @@
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <RouterLink to="/kontakt" class="btn-primary">Kontakt aufnehmen</RouterLink>
-            <RouterLink to="/termin" class="btn-secondary">Termin vereinbaren</RouterLink>
+            <RouterLink to="/termin" class="btn-secondary">Termin anfragen</RouterLink>
           </div>
         </div>
       </div>

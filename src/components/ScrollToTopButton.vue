@@ -11,7 +11,10 @@ const visible = ref(false)
 const updateVisibility = () => {
   visible.value = window.scrollY > 420
 }
-const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+const scrollTop = () => {
+  document.querySelector('nav a')?.focus({ preventScroll: true })
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+}
 
 onMounted(() => {
   window.addEventListener('scroll', updateVisibility)

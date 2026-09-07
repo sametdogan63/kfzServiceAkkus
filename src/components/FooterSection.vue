@@ -22,10 +22,10 @@
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">Kontakt</h3>
         <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-300">
-          <li>Tel: <a href="tel:+4917623141582" class="text-white transition hover:text-brand-400">+49 176 23141582</a></li>
-          <li><a href="mailto:service@kfz-akkus.de" class="text-white transition hover:text-brand-400">service@kfz-akkus.de</a></li>
-          <li>Germaniastraße 160<br />45355 Essen</li>
-          <li>Mo–Fr 08:00–18:00<br />Sa 08:00–13:00</li>
+          <li>Tel: <a :href="businessInfo.telephoneHref" class="text-white transition hover:text-brand-400">{{ businessInfo.telephone }}</a></li>
+          <li><a :href="`mailto:${businessInfo.email}`" class="break-all text-white transition hover:text-brand-400">{{ businessInfo.email }}</a></li>
+          <li>{{ businessInfo.street }}<br />{{ businessInfo.postalCode }} {{ businessInfo.city }}</li>
+          <li><span v-for="hours in businessInfo.openingHours" :key="hours.label" class="block">{{ hours.label }} {{ hours.time }}</span></li>
         </ul>
       </div>
 
@@ -34,13 +34,13 @@
         <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-300">
           <li><RouterLink to="/leistungen" class="transition hover:text-brand-400">Unsere Leistungen</RouterLink></li>
           <li><RouterLink to="/ueber-uns" class="transition hover:text-brand-400">Über uns</RouterLink></li>
-          <li><RouterLink to="/termin" class="transition hover:text-brand-400">Termin buchen</RouterLink></li>
+          <li><RouterLink to="/termin" class="transition hover:text-brand-400">Termin anfragen</RouterLink></li>
           <li><RouterLink to="/kontakt" class="transition hover:text-brand-400">Kontakt</RouterLink></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 border-t border-white/10 pt-8 text-sm text-slate-500 sm:flex sm:items-center sm:justify-between">
+    <div class="mt-12 border-t border-white/10 pt-8 text-sm text-slate-400 sm:flex sm:items-center sm:justify-between">
       <p>© 2026 Kfz-Service Akkus. Alle Rechte vorbehalten.</p>
       <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 sm:mt-0">
         <RouterLink to="/impressum" class="transition hover:text-brand-400">Impressum</RouterLink>
@@ -53,4 +53,5 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { businessInfo } from '../config/businessInfo'
 </script>

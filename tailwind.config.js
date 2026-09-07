@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        sans: ['DM Sans', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       fontSize: {
         'h1': ['3.5rem', { lineHeight: '1.2', fontWeight: '700' }],

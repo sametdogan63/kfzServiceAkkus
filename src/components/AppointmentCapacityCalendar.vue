@@ -1,30 +1,9 @@
 <template>
-  <div class="space-y-6">
-    <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:rounded-3xl sm:p-5">
-      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-200 sm:text-sm sm:tracking-[0.28em]">Kalender Auslastung</p>
-      <p class="mt-2 text-sm text-slate-300">
-        Grün: komplett frei, Gelb: Platz verfügbar, Rot: ausgebucht.
-      </p>
-      <p class="mt-2 text-xs text-slate-400">
-        Hinweis: Offene Anfragen und bestätigte Termine reservieren den jeweiligen Zeitraum.
-      </p>
-      <p v-if="!props.selectedService" class="mt-2 text-xs text-amber-300">
-        Bitte zuerst eine Leistung wählen, damit passende Slots angezeigt werden.
-      </p>
-      <div class="mt-4 flex flex-wrap gap-3 text-xs text-slate-300">
-        <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-3 py-1">
-          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-          Frei
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/15 px-3 py-1">
-          <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-          Teilweise frei
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/15 px-3 py-1">
-          <span class="h-2 w-2 rounded-full bg-rose-400"></span>
-          Kein Platz
-        </span>
-      </div>
+  <div class="space-y-4" :aria-busy="isLoading">
+    <div role="status" aria-atomic="true" class="text-sm text-slate-300">
+      <p v-if="!props.selectedService">Noch keine Leistung ausgewählt.</p>
+      <p v-else-if="isLoading">Verfügbare Termine werden geladen …</p>
+      <p v-else-if="days.length">{{ availableDayCount }} Tage mit passenden Terminen in den nächsten 21 Tagen.</p>
     </div>
 
     <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
@@ -32,35 +11,39 @@
         v-for="day in days"
         :key="day.date"
         type="button"
-        :disabled="day.remaining === 0"
-        class="rounded-2xl border p-3 text-left transition-all duration-200"
+        :disabled="isLoading || !day.slots.some((slot) => slot.available)"
+        :aria-pressed="props.selectedDate === day.date"
+        class="min-h-24 rounded-lg border p-3 text-left transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60"
         :class="dayButtonClass(day)"
         @click="selectDay(day)"
       >
         <p class="text-xs uppercase tracking-[0.18em] text-slate-300">{{ weekdayLabel(day.date) }}</p>
         <p class="mt-1 text-base font-semibold text-white">{{ dateLabel(day.date) }}</p>
-        <p class="mt-2 text-xs" :class="dayStatusTextClass(day.status)">
-          {{ statusLabel(day.status) }}
+        <p class="mt-2 text-xs" :class="day.slots.some((slot) => slot.available) ? 'text-emerald-300' : 'text-slate-300'">
+          {{ day.slots.some((slot) => slot.available) ? 'Verfügbar' : day.capacity === 0 ? 'Geschlossen' : 'Kein passender Termin' }}
         </p>
-        <p class="mt-1 text-xs text-slate-400">{{ day.remaining }} freie Zeitblöcke</p>
       </button>
     </div>
 
-    <p v-if="loadError" class="border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-200">
-      {{ loadError }}
-    </p>
+    <div v-if="loadError" role="alert" class="space-y-3 rounded-lg border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-200">
+      <p>{{ loadError }}</p>
+      <button type="button" @click="refreshDays" class="btn-secondary gap-2"><RefreshCw class="h-4 w-4" aria-hidden="true" />Erneut laden</button>
+      <p>Alternativ: <a href="tel:+4917623141582" class="underline">+49 176 23141582</a></p>
+    </div>
 
-    <div v-if="selectedDay" class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:rounded-3xl sm:p-5">
-      <p class="text-sm font-semibold text-white">
-        Verfügbare Slots für {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
+    <div v-if="selectedDay" class="border-t border-white/10 pt-4" role="group" aria-labelledby="appointment-time-label">
+      <p id="appointment-time-label" class="text-sm font-semibold text-white">
+        Uhrzeit am {{ weekdayLabel(selectedDay.date) }}, {{ dateLabel(selectedDay.date) }}
       </p>
       <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
         <button
           v-for="slot in selectedDay.slots"
           :key="slot.value"
           type="button"
-          :disabled="!slot.available"
-          class="rounded-xl border px-3 py-2 text-sm font-medium transition-all duration-200"
+          :disabled="isLoading || !slot.available"
+          :aria-pressed="props.selectedSlot === slot.value"
+          :aria-label="`${slot.value} Uhr${slot.available ? '' : ', nicht verfügbar'}`"
+          class="min-h-11 rounded-lg border px-3 py-2 text-sm font-medium transition-colors duration-200"
           :class="slotButtonClass(slot.value, slot.available)"
           @click="selectSlot(slot.value)"
         >
@@ -68,14 +51,15 @@
         </button>
       </div>
       <p v-if="!hasAvailableSlot" class="mt-4 text-sm text-rose-300">
-        Für diesen Tag ist aktuell kein Slot verfügbar.
+        Für diesen Tag ist aktuell kein passender Termin verfügbar.
       </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { RefreshCw } from 'lucide-vue-next'
 import { getAvailabilityWindow } from '../services/appointmentProductionService'
 
 const props = defineProps({
@@ -98,6 +82,9 @@ const emit = defineEmits(['update:selectedDate', 'update:selectedSlot'])
 const days = ref([])
 const selectedDay = ref(null)
 const loadError = ref('')
+const isLoading = ref(false)
+let latestRequest = 0
+const availableDayCount = computed(() => days.value.filter((day) => day.slots.some((slot) => slot.available)).length)
 
 const hasAvailableSlot = computed(() => {
   if (!selectedDay.value) {
@@ -105,18 +92,6 @@ const hasAvailableSlot = computed(() => {
   }
   return selectedDay.value.slots.some((slot) => slot.available)
 })
-
-const statusLabel = (status) => {
-  if (status === 'green') return 'Komplett frei'
-  if (status === 'yellow') return 'Platz vorhanden'
-  return 'Ausgebucht'
-}
-
-const dayStatusTextClass = (status) => {
-  if (status === 'green') return 'text-emerald-300'
-  if (status === 'yellow') return 'text-amber-300'
-  return 'text-rose-300'
-}
 
 const dayButtonClass = (day) => {
   const base = ['bg-white/[0.03]', 'border-white/10']
@@ -153,18 +128,18 @@ const slotButtonClass = (slotValue, available) => {
 }
 
 const weekdayLabel = (isoDate) => {
-  return new Date(isoDate).toLocaleDateString('de-DE', { weekday: 'short' })
+  return new Date(`${isoDate}T12:00:00`).toLocaleDateString('de-DE', { weekday: 'short' })
 }
 
 const dateLabel = (isoDate) => {
-  return new Date(isoDate).toLocaleDateString('de-DE', {
+  return new Date(`${isoDate}T12:00:00`).toLocaleDateString('de-DE', {
     day: '2-digit',
     month: '2-digit'
   })
 }
 
 const selectDay = (day) => {
-  if (day.remaining === 0) {
+  if (isLoading.value || !day.slots.some((slot) => slot.available)) {
     return
   }
 
@@ -181,24 +156,32 @@ const selectSlot = (slot) => {
 }
 
 const refreshDays = async () => {
+  const request = ++latestRequest
   loadError.value = ''
-
-  try {
-    days.value = await getAvailabilityWindow({ days: 21, selectedService: props.selectedService })
-  } catch (error) {
+  if (!props.selectedService) {
     days.value = []
     selectedDay.value = null
-    loadError.value = error.message || 'Der Kalender konnte nicht geladen werden.'
+    isLoading.value = false
     return
   }
 
-  if (props.selectedDate) {
-    const match = days.value.find((entry) => entry.date === props.selectedDate) || null
-    selectedDay.value = match
-
-    if (!match || !match.slots.some((slot) => slot.value === props.selectedSlot && slot.available)) {
+  isLoading.value = true
+  try {
+    const result = await getAvailabilityWindow({ days: 21, selectedService: props.selectedService })
+    if (request !== latestRequest) return
+    days.value = result
+    selectedDay.value = days.value.find((entry) => entry.date === props.selectedDate) || null
+    if (!selectedDay.value?.slots.some((slot) => slot.value === props.selectedSlot && slot.available)) {
       emit('update:selectedSlot', '')
     }
+  } catch (error) {
+    if (request !== latestRequest) return
+    days.value = []
+    selectedDay.value = null
+    loadError.value = error.message || 'Der Kalender konnte nicht geladen werden.'
+    emit('update:selectedSlot', '')
+  } finally {
+    if (request === latestRequest) isLoading.value = false
   }
 }
 
@@ -212,13 +195,12 @@ watch(
 watch(
   () => props.selectedService,
   () => {
+    days.value = []
+    selectedDay.value = null
     refreshDays()
-  }
+  },
+  { immediate: true }
 )
-
-onMounted(() => {
-  refreshDays()
-})
 
 defineExpose({
   refreshDays

@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
     <ServiceCard
-      v-for="service in services"
+      v-for="service in visibleServices"
       :key="service.title"
       :title="service.title"
       :description="service.description"
@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import ServiceCard from './ServiceCard.vue'
 import {
   ShieldCheck,
@@ -24,6 +25,9 @@ import {
   Wrench,
   Sparkles
 } from 'lucide-vue-next'
+
+const props = defineProps({ limit: { type: Number, default: 0 } })
+const visibleServices = computed(() => props.limit > 0 ? services.slice(0, props.limit) : services)
 
 const services = [
   { title: 'Inspektion', description: 'Sorgfältige Prüfung aller sicherheitsrelevanten Komponenten.', icon: ShieldCheck },

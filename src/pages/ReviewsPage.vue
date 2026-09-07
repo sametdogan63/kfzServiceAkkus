@@ -24,7 +24,7 @@
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Einen Termin anfragen</h2>
         <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Wählen Sie online eine Leistung und einen passenden Terminwunsch aus.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <RouterLink to="/termin" class="btn-primary">Termin buchen</RouterLink>
+          <RouterLink to="/termin" class="btn-primary">Termin anfragen</RouterLink>
           <RouterLink to="/kontakt" class="btn-secondary">Kontakt aufnehmen</RouterLink>
         </div>
       </div>

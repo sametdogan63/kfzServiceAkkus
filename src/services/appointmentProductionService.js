@@ -168,11 +168,11 @@ export async function submitAppointment(data) {
     const durationMinutes = getServiceDurationMinutes(data.service)
     const { data: appointment, error } = await client.rpc('submit_appointment', {
       p_name: data.name,
-      p_phone: data.phone,
+      p_phone: data.phone?.trim() || null,
       p_email: data.email,
       p_vehicle: data.vehicle,
-      p_model: data.model,
-      p_year: Number(data.year),
+      p_model: data.model?.trim() || null,
+      p_year: data.year === '' || data.year == null ? null : Number(data.year),
       p_license: data.license || null,
       p_service: data.service,
       p_appointment_date: data.date,

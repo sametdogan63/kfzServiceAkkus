@@ -6,10 +6,10 @@
         <div class="max-w-2xl space-y-4 text-center lg:text-left">
           <p class="text-sm uppercase tracking-[0.35em] text-brand-200/80">Bereit für sorgenfreie Mobilität?</p>
           <h2 class="text-3xl font-semibold leading-tight text-white sm:text-4xl">Jetzt Premium-Service anfragen</h2>
-          <p class="text-sm leading-7 text-slate-300 sm:text-base">Buchen Sie schnell und einfach Ihren Termin für Inspektion, Reparatur oder Batteriecheck – mit klarer Kommunikation und modernem Serviceverständnis.</p>
+          <p class="text-sm leading-7 text-slate-300 sm:text-base">Fragen Sie Ihren Wunschtermin für Inspektion, Reparatur oder Batteriecheck an. Die Werkstatt prüft Ihre Anfrage und bestätigt den Termin per E-Mail.</p>
         </div>
         <div class="flex flex-col gap-4 sm:min-w-[260px] sm:flex-row lg:flex-col lg:items-stretch">
-          <RouterLink to="/termin" class="btn-primary">Termin vereinbaren</RouterLink>
+          <RouterLink to="/termin" class="btn-primary">Termin anfragen</RouterLink>
           <RouterLink to="/kontakt" class="btn-secondary">Kontakt aufnehmen</RouterLink>
         </div>
       </div>

@@ -81,10 +81,10 @@
         <div class="relative text-center space-y-8">
           <div class="space-y-4">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">Bereit, uns kennenzulernen?</h2>
-            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Besuchen Sie uns in der Werkstatt oder buchen Sie einen Termin für eine Beratung.</p>
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">Besuchen Sie uns in der Werkstatt oder fragen Sie einen Termin für eine Beratung an.</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">Termin vereinbaren</RouterLink>
+            <RouterLink to="/termin" class="btn-primary w-full sm:w-auto">Termin anfragen</RouterLink>
             <RouterLink to="/kontakt" class="btn-secondary w-full sm:w-auto">Kontakt aufnehmen</RouterLink>
           </div>
         </div>
